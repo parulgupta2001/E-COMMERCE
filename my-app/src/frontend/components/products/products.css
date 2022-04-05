@@ -1,0 +1,33 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+    padding-left: 4rem;
+    padding-top:3rem;
+}
+
+.img-card-container{
+    height:20rem;
+    width:14rem;
+    font-size:medium;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border:none;
+    background-color: var(--background-color-one);
+}
+
+.img-container {
+    height:12rem;
+    width:12rem;
+}
+
+.img-card-container:hover {
+    box-shadow: 5px 5px 5px  var(--border-color), -5px -5px 5px  var(--border-color);
+}
+
+.add-to-cart-btn{
+    width:12rem;
+    background-color: var(--color-two);
+}
