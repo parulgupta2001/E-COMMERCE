@@ -15,7 +15,7 @@ function Navbar() {
         <div className="logo-container">
           <img
             className="logo"
-            src="http://res.cloudinary.com/dwhran9qg/image/upload/sports/sports_k7rwkw.jpg"
+            src="http://res.cloudinary.com/dwhran9qg/image/upload/sports/sports_k7rwkw.jpg" alt="sports"
           />
           SportsTown
         </div>
