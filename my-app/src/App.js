@@ -1,5 +1,5 @@
 import "./App.css";
-import { Home, Signup, Login } from "./frontend/pages/index";
+import { Home, Signup, Login, Cart } from "./frontend/pages/index";
 import { Navbar } from "./frontend/components/navbar/Navbar";
 import { Routes, Route } from "react-router-dom";
 
@@ -11,6 +11,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );

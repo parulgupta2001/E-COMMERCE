@@ -5,11 +5,13 @@ import "./navbar.css";
 import "../../../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth-context";
+import { useCart } from "../../contexts/cart-context";
 
 function Navbar() {
   const { authState, authDispatch } = useAuth();
   const { token } = authState;
   const navigate = useNavigate();
+  const { cartItems } = useCart();
 
   function logoutHandler(e) {
     e.preventDefault();
@@ -39,7 +41,7 @@ function Navbar() {
         )}
       </div>
       <div className="main-nav">
-        <div className="logo-container">
+        <div className="logo-container" onClick={() => navigate("/")}>
           <img
             className="logo"
             src="http://res.cloudinary.com/dwhran9qg/image/upload/sports/sports_k7rwkw.jpg"
@@ -57,8 +59,13 @@ function Navbar() {
             <div class="dot-wishlist dot">4</div>
           </div>
           <div>
-            <FaShoppingCart className="shopping-cart" />
-            <div class="dot-cart dot">1</div>
+            <Link to={token ? "/cart" : "/login"}>
+              <FaShoppingCart
+                className="shopping-cart"
+                style={{ color: "var(--background-color-two)" }}
+              />
+              <div class="dot-cart dot">{token ? cartItems.length : 0}</div>
+            </Link>
           </div>
         </div>
       </div>

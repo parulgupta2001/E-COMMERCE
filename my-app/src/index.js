@@ -6,6 +6,7 @@ import { makeServer } from "./server";
 import { FilterProvider } from "./frontend/contexts/filter-context";
 import { AuthProvider } from "./frontend/contexts/auth-context";
 import { BrowserRouter } from "react-router-dom";
+import { CartProvider } from "./frontend/contexts/cart-context";
 
 // Call make Server
 makeServer();
@@ -14,9 +15,11 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <BrowserRouter>
-        <FilterProvider>
-          <App />
-        </FilterProvider>
+        <CartProvider>
+          <FilterProvider>
+            <App />
+          </FilterProvider>
+        </CartProvider>
       </BrowserRouter>
     </AuthProvider>
   </React.StrictMode>,
