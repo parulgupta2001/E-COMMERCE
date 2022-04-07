@@ -52,7 +52,6 @@ function Wishlist() {
                     <button onClick={() => removeFromWishlist(_id)}>
                       REMOVE
                     </button>
-                    |<button>ADD TO CART</button>
                   </div>
                 </div>
               )

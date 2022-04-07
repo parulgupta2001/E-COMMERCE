@@ -1,5 +1,6 @@
 import { Filter } from "../../components/filter/Filter";
 import { Products } from "../../components/products/Products";
+import { Footer } from "../../components/footer/Footer";
 import "./home.css";
 
 export function Home() {
@@ -7,6 +8,7 @@ export function Home() {
     <div className="home-container">
       <Filter />
       <Products />
+      <Footer />
     </div>
   );
 }
