@@ -18,7 +18,7 @@ export function Login() {
       // saving the encodedToken in the localStorage
       localStorage.setItem("token", response.data.encodedToken);
       authDispatch({ type: "TOKEN", payload: response.data.encodedToken });
-      navigate("/");
+      navigate("/product");
     } catch (error) {
       authDispatch({
         type: "ERROR",

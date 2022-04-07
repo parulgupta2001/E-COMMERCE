@@ -1,5 +1,12 @@
 import "./App.css";
-import { Home, Signup, Login, Cart, Wishlist } from "./frontend/pages/index";
+import {
+  Home,
+  Signup,
+  Login,
+  Cart,
+  Wishlist,
+  ProductListing,
+} from "./frontend/pages/index";
 import { Navbar } from "./frontend/components/index";
 import { Routes, Route } from "react-router-dom";
 
@@ -8,6 +15,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
+        <Route path="/product" element={<ProductListing />} />
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
