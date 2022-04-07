@@ -1,6 +1,6 @@
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/auth-context";
+import { useAuth } from "../../contexts/index";
 import axios from "axios";
 
 export function Login() {
@@ -22,11 +22,19 @@ export function Login() {
     } catch (error) {
       authDispatch({
         type: "ERROR",
-        payload: "Wrong credentials,please try again",
+        payload: "Wrong credentials, please try again",
       });
       console.log(error);
     }
   };
+
+  setTimeout(() => {
+    if (error)
+      authDispatch({
+        type: "ERROR",
+        payload: null,
+      });
+  }, 3000);
 
   return (
     <>
@@ -77,7 +85,7 @@ export function Login() {
           </div>
         </div>
       </form>
-      <div>{error}</div>
+      <div className="error-msg">{error}</div>
     </>
   );
 }

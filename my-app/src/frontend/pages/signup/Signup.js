@@ -1,8 +1,9 @@
 import "./signup.css";
 import "../../../App.css";
-import { useAuth } from "../../contexts/auth-context";
+import { useAuth } from "../../contexts/index";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { Footer } from "../../components/index";
 
 export function Signup() {
   const { authState, authDispatch } = useAuth();
@@ -112,4 +113,5 @@ export function Signup() {
       </div>
     </form>
   );
+  <Footer />;
 }
