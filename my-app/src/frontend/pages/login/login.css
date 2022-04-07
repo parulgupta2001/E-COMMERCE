@@ -25,4 +25,8 @@
     font-size: 0.9rem;
 }
 
+.error-msg{
+    color:var(--click-color);
+    transform: translate(500px, 30px);
+}
 

@@ -1,6 +1,6 @@
 import "./filter.css";
 import "../../../App.css";
-import { useFilter } from "../../contexts/filter-context";
+import { useFilter } from "../../contexts/index";
 
 export function Filter() {
   const { state, dispatch } = useFilter();

@@ -1,5 +1,5 @@
 import "./cart.css";
-import { useCart } from "../../contexts/cart-context";
+import { useCart } from "../../contexts/index";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

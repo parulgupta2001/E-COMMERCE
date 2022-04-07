@@ -31,3 +31,11 @@
     width:12rem;
     background-color: var(--color-two);
 }
+
+.redColor{
+    color: var(--click-color);
+}
+
+.greyColor{
+   color: var(--border-color);
+}

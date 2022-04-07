@@ -1,6 +1,6 @@
 import "./signup.css";
 import "../../../App.css";
-import { useAuth } from "../../contexts/auth-context";
+import { useAuth } from "../../contexts/index";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 

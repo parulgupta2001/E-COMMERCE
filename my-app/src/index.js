@@ -3,10 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
-import { FilterProvider } from "./frontend/contexts/filter-context";
-import { AuthProvider } from "./frontend/contexts/auth-context";
+import {
+  FilterProvider,
+  AuthProvider,
+  CartProvider,
+  WishlistProvider,
+} from "./frontend/contexts/index";
 import { BrowserRouter } from "react-router-dom";
-import { CartProvider } from "./frontend/contexts/cart-context";
 
 // Call make Server
 makeServer();
@@ -15,11 +18,13 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <BrowserRouter>
-        <CartProvider>
-          <FilterProvider>
-            <App />
-          </FilterProvider>
-        </CartProvider>
+        <WishlistProvider>
+          <CartProvider>
+            <FilterProvider>
+              <App />
+            </FilterProvider>
+          </CartProvider>
+        </WishlistProvider>
       </BrowserRouter>
     </AuthProvider>
   </React.StrictMode>,

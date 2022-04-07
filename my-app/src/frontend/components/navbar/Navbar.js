@@ -4,14 +4,14 @@ import { AiFillHeart } from "react-icons/ai";
 import "./navbar.css";
 import "../../../App.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/auth-context";
-import { useCart } from "../../contexts/cart-context";
+import { useAuth, useCart, useWishlist } from "../../contexts/index";
 
 function Navbar() {
   const { authState, authDispatch } = useAuth();
   const { token } = authState;
   const navigate = useNavigate();
   const { cartItems } = useCart();
+  const { wishlist } = useWishlist();
 
   function logoutHandler(e) {
     e.preventDefault();
@@ -55,8 +55,13 @@ function Navbar() {
         </div>
         <div className="page-container">
           <div>
-            <AiFillHeart className="wishlist" />
-            <div class="dot-wishlist dot">4</div>
+            <Link to={token ? "/wishlist" : "/login"}>
+              <AiFillHeart
+                className="wishlist"
+                style={{ color: "var(--background-color-two)" }}
+              />
+              <div class="dot-wishlist dot">{token ? wishlist.length : 0}</div>
+            </Link>
           </div>
           <div>
             <Link to={token ? "/cart" : "/login"}>

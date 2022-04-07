@@ -1,10 +1,8 @@
 import "../../../App.css";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiTwotoneHeart } from "react-icons/ai";
 import "./products.css";
-import { useFilter } from "../../contexts/filter-context";
+import { useFilter, useAuth, useCart, useWishlist } from "../../contexts/index";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/auth-context";
-import { useCart } from "../../contexts/cart-context";
 import axios from "axios";
 
 export function Products() {
@@ -13,6 +11,7 @@ export function Products() {
   const { authState } = useAuth();
   const { token } = authState;
   const { setCartItems, cartItems } = useCart();
+  const { wishlist, setWishlist } = useWishlist();
 
   const addToCart = async (product, setCartItems, token) => {
     try {
@@ -31,12 +30,69 @@ export function Products() {
     }
   };
 
+  const addToWishlist = async (product, setWishlist, token) => {
+    try {
+      const response = await axios.post(
+        `/api/user/wishlist`,
+        {
+          product,
+        },
+        {
+          headers: { authorization: token },
+        }
+      );
+      setWishlist(response.data.wishlist);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const removeFromWishlist = async (id, setWishlist, token) => {
+    try {
+      const response = await axios.delete(`/api/user/wishlist/${id}`, {
+        headers: { authorization: token },
+      });
+      setWishlist(response.data.wishlist);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="main">
       {categoryData.map(
         ({ img, _id, name, price, rating, stock, delivery, categoryName }) => (
           <div className="img-card-container">
-            <AiOutlineHeart />
+            {wishlist.find((item) => item._id === _id) ? (
+              <AiTwotoneHeart
+                className="redColor"
+                onClick={() =>
+                  token
+                    ? removeFromWishlist(_id, setWishlist, token)
+                    : navigate("/login")
+                }
+              />
+            ) : (
+              <AiTwotoneHeart
+                className="greyColor"
+                onClick={() =>
+                  token
+                    ? addToWishlist(
+                        {
+                          img,
+                          name,
+                          rating,
+                          delivery,
+                          price,
+                          _id,
+                        },
+                        setWishlist,
+                        token
+                      )
+                    : navigate("/login")
+                }
+              />
+            )}
             <img className="img-container" src={img} alt="product" />
             <div> {name} </div>
             <div>Rs. {price}</div>
