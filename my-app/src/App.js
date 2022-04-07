@@ -1,7 +1,6 @@
 import "./App.css";
 import { Home, Signup, Login, Cart, Wishlist } from "./frontend/pages/index";
-import { Navbar } from "./frontend/components/navbar/Navbar";
-import { Footer } from "./frontend/components/footer/Footer";
+import { Navbar } from "./frontend/components/index";
 import { Routes, Route } from "react-router-dom";
 
 function App() {

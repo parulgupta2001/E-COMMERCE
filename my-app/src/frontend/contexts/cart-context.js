@@ -9,7 +9,6 @@ const CartProvider = ({ children }) => {
   useEffect(() => {
     axios.get("/api/user/cart").then((response) => {
       setCartItems(response.data.cart);
-      console.log(response.data.cart);
     });
   });
 

@@ -1,6 +1,4 @@
-import { Filter } from "../../components/filter/Filter";
-import { Products } from "../../components/products/Products";
-import { Footer } from "../../components/footer/Footer";
+import { Filter, Products, Footer } from "../../components/index";
 import "./home.css";
 
 export function Home() {
