@@ -3,7 +3,6 @@ import "../../../App.css";
 import { useAuth } from "../../contexts/index";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { Footer } from "../../components/index";
 
 export function Signup() {
   const { authState, authDispatch } = useAuth();
@@ -23,7 +22,7 @@ export function Signup() {
       console.log(response.data.encodedToken);
       localStorage.setItem("token", response.data.encodedToken);
       authDispatch({ type: "TOKEN", payload: response.data.encodedToken });
-      navigate("/");
+      navigate("/product");
     } catch (error) {
       console.log(error);
     }
@@ -113,5 +112,4 @@ export function Signup() {
       </div>
     </form>
   );
-  <Footer />;
 }

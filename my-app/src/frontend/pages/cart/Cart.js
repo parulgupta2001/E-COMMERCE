@@ -70,7 +70,7 @@ function Cart() {
       {cartItems.length === 0 ? (
         <div className="empty-cart-msg">
           <h3>Your SportsTown Basket is empty</h3>
-          <button onClick={() => navigate("/")}>Add items</button>
+          <button onClick={() => navigate("/product")}>Add items</button>
         </div>
       ) : (
         <div className="cart-container">

@@ -17,7 +17,7 @@ function Navbar() {
     e.preventDefault();
     localStorage.removeItem("token");
     authDispatch({ type: "TOKEN", payload: null });
-    navigate("/");
+    navigate("/product");
   }
 
   function loginHandler() {

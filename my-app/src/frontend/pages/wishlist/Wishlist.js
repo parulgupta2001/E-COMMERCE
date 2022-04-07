@@ -24,7 +24,7 @@ function Wishlist() {
       {wishlist.length === 0 ? (
         <div className="empty-wishlist-msg">
           <h3>Your ♡ WISHLIST is empty</h3>
-          <button onClick={() => navigate("/")}>Add items</button>
+          <button onClick={() => navigate("/product")}>Add items</button>
         </div>
       ) : (
         <div className="wishlist-container">
