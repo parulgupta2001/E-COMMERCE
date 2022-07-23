@@ -36,6 +36,7 @@ export function Signup() {
           <label className="first-name-label first-name">First name</label>
           <input
             type="text"
+            required
             className="name-input first-name"
             onChange={(e) =>
               authDispatch({
@@ -49,6 +50,7 @@ export function Signup() {
           <label className="last-name-label last-name">Last name</label>
           <input
             type="text"
+            required
             className="name-input last-name"
             onChange={(e) =>
               authDispatch({ type: "LAST_NAME", payload: e.target.value })
@@ -63,6 +65,7 @@ export function Signup() {
         <div>
           <input
             type="email"
+            required
             className="email-input user-input"
             onChange={(e) =>
               authDispatch({ type: "EMAIL", payload: e.target.value })
@@ -77,6 +80,7 @@ export function Signup() {
         <div>
           <input
             type="password"
+            required
             className="password-input user-input"
             onChange={(e) =>
               authDispatch({ type: "PASSWORD", payload: e.target.value })
@@ -91,6 +95,7 @@ export function Signup() {
         <div>
           <input
             type="password"
+            required
             className="password-input user-input"
             onChange={(e) =>
               authDispatch({

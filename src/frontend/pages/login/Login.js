@@ -49,6 +49,7 @@ export function Login() {
           <div>
             <input
               type="email"
+              required
               class="email-input user-input"
               onChange={(e) =>
                 authDispatch({ type: "EMAIL", payload: e.target.value })
@@ -65,6 +66,7 @@ export function Login() {
           <div>
             <input
               type="password"
+              required
               className="password-input user-input"
               onChange={(e) =>
                 authDispatch({ type: "PASSWORD", payload: e.value.target })
