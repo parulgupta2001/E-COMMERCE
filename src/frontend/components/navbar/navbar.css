@@ -1,68 +1,70 @@
-.upper-nav{
-    background-color: var(--background-color-two);
-    color:var(--background-color-one);
-    height:1.5rem;
-    display: flex;
-    justify-content: flex-end;
-    padding: 0.3rem 2rem;
-    column-gap: 2rem;
-  }
-  
-  .navigation-bar {
-      flex-direction: column;
-      background-color: var(--background-color-one);
-      row-gap: 0.3rem;
-      padding-bottom: 1rem;
-      border-bottom: dotted 1.5px var(--border-color);
-  }
-  
-  .log-in:hover, .sign-up:hover {
-      text-decoration: underline;
-  }
-  
-  .main-nav{
-      display: flex;
-    justify-content: space-around;
-      column-gap: 10rem;
-      align-items: center;
-      padding-right: 0.5rem;
-  }
-  
-  .search-bar input {
-    width:30rem;
-    padding:0.5rem;
+.upper-nav {
+  background-color: var(--background-color-two);
+  color: var(--background-color-one);
+  height: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.3rem 2rem;
+  column-gap: 2rem;
+}
+
+.navigation-bar {
+  flex-direction: column;
+  background-color: var(--background-color-one);
+  row-gap: 0.3rem;
+  padding-bottom: 1rem;
+  border-bottom: dotted 1.5px var(--border-color);
+}
+
+.log-in:hover,
+.sign-up:hover {
+  text-decoration: underline;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+  column-gap: 10rem;
+  align-items: center;
+  padding-right: 0.5rem;
+}
+
+.search-bar input {
+  width: 30rem;
+  padding: 0.5rem;
 }
 
 .logo {
-    height:5rem;
-    width:4rem;
+  height: 5rem;
+  width: 4rem;
 }
 
 .logo-container {
-    display: flex;
-    margin-left:1rem;
-    font-weight: bolder;
-    font-size: 1.5rem;
-    color: var(--background-color-two);
-    text-decoration: line-through var(--background-color-one);
-} 
-
-.shopping-cart, .wishlist{
-    width:8rem;
-    height:2rem;
+  display: flex;
+  margin-left: 1rem;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  color: var(--background-color-two);
+  text-decoration: line-through var(--background-color-one);
 }
 
-.dot{
-    border-radius:50%;
-    transform: translate(70px,-45px);
-    background-color: var(--color-two);
-    color:var(--background-color-one);
-    height:1.3rem;
-    width:1.3rem;
-    display: flex;
-    justify-content: center;
+.shopping-cart,
+.wishlist {
+  width: 8rem;
+  height: 2rem;
 }
 
-.page-container{
-    display: flex;
+.dot {
+  border-radius: 50%;
+  transform: translate(70px, -45px);
+  background-color: var(--color-two);
+  color: var(--background-color-one);
+  height: 1.3rem;
+  width: 1.3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.page-container {
+  display: flex;
 }
