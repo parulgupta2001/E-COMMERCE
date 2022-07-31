@@ -18,28 +18,28 @@ export function Home() {
 
   return (
     <div className="home-container">
-        <div className="img-category-container">
-      <img
-        className="landing-page-img"
-        src="http://res.cloudinary.com/dwhran9qg/image/upload/sports/win_uyiy3s.svg"
-        alt="sports"
-      />
-      <ul className="list-container">
-        {completeCategories.map((item) => (
-          <li
-            className="stacked-list-item"
-            onClick={() => {
-              dispatch({
-                type: "CATEGORY",
-                payload: item,
-              });
-              navigate("/product");
-            }}
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
+      <div className="img-category-container">
+        <img
+          className="landing-page-img"
+          src="http://res.cloudinary.com/dwhran9qg/image/upload/sports/win_uyiy3s.svg"
+          alt="sports"
+        />
+        <ul className="list-container">
+          {completeCategories.map((item) => (
+            <li
+              className="stacked-list-item"
+              onClick={() => {
+                dispatch({
+                  type: "CATEGORY",
+                  payload: item,
+                });
+                navigate("/product");
+              }}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
       <Footer />
     </div>
