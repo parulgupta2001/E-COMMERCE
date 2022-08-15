@@ -3,8 +3,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
 import "./navbar.css";
 import "../../../App.css";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth, useCart, useWishlist } from "../../contexts/index";
+import { useAuth, useCart, useWishlist, useFilter } from "../../contexts/index";
 
 function Navbar() {
   const { authState, authDispatch } = useAuth();
@@ -12,6 +13,8 @@ function Navbar() {
   const navigate = useNavigate();
   const { cartItems } = useCart();
   const { wishlist } = useWishlist();
+  const { categoryData } = useFilter();
+  const [searchProduct, setSearchProduct] = useState("");
 
   function logoutHandler(e) {
     e.preventDefault();
@@ -22,6 +25,16 @@ function Navbar() {
 
   function loginHandler() {
     navigate("/login");
+  }
+
+  function search(input, categoryData) {
+    if (input.trim().length === 0) {
+      return null;
+    } else {
+      return categoryData.filter((product) =>
+        product.name.toLowerCase().includes(input.toLowerCase())
+      );
+    }
   }
 
   return (
@@ -50,9 +63,19 @@ function Navbar() {
           SportsTown
         </div>
         <div className="search-bar">
-          <input type="search" placeholder="Search..."></input>
-          <FcSearch />
+          <input
+            type="search"
+            placeholder="Search..."
+            onChange={(e) =>
+              setSearchProduct(search(e.target.value, categoryData))
+            }
+          />
+          {searchProduct &&
+            searchProduct.map(({ name }) => (
+              <span className="search-products">{name}</span>
+            ))}
         </div>
+
         <div className="page-container">
           <div>
             <Link to={token ? "/wishlist" : "/login"}>

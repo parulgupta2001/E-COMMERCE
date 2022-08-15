@@ -29,92 +29,94 @@ export function Signup() {
   };
 
   return (
-    <form onSubmit={signupHandler} className="signup-container">
-      <h3>SIGN-UP</h3>
-      <div className="input-name-label">
-        <div>
-          <label className="first-name-label first-name">First name</label>
-          <input
-            type="text"
-            required
-            className="name-input first-name"
-            onChange={(e) =>
-              authDispatch({
-                type: "FIRST_NAME",
-                payload: e.target.value,
-              })
-            }
-          />
+    <div className="signup">
+      <form onSubmit={signupHandler} className="signup-container">
+        <h3>SIGN-UP</h3>
+        <div className="input-name-label">
+          <div>
+            <label className="first-name-label first-name">First name</label>
+            <input
+              type="text"
+              required
+              className="name-input first-name"
+              onChange={(e) =>
+                authDispatch({
+                  type: "FIRST_NAME",
+                  payload: e.target.value,
+                })
+              }
+            />
+          </div>
+          <div>
+            <label className="last-name-label last-name">Last name</label>
+            <input
+              type="text"
+              required
+              className="name-input last-name"
+              onChange={(e) =>
+                authDispatch({ type: "LAST_NAME", payload: e.target.value })
+              }
+            />
+          </div>
         </div>
-        <div>
-          <label className="last-name-label last-name">Last name</label>
-          <input
-            type="text"
-            required
-            className="name-input last-name"
-            onChange={(e) =>
-              authDispatch({ type: "LAST_NAME", payload: e.target.value })
-            }
-          />
+        <div className="input email-label">
+          <div>
+            <label className="input-email-label">Email</label>
+          </div>
+          <div>
+            <input
+              type="email"
+              required
+              className="email-input user-input"
+              onChange={(e) =>
+                authDispatch({ type: "EMAIL", payload: e.target.value })
+              }
+            />
+          </div>
         </div>
-      </div>
-      <div className="input email-label">
-        <div>
-          <label className="input-email-label">Email</label>
+        <div className="input password-label">
+          <div>
+            <label className="input-password-label">Password</label>
+          </div>
+          <div>
+            <input
+              type="password"
+              required
+              className="password-input user-input"
+              onChange={(e) =>
+                authDispatch({ type: "PASSWORD", payload: e.target.value })
+              }
+            />
+          </div>
         </div>
-        <div>
-          <input
-            type="email"
-            required
-            className="email-input user-input"
-            onChange={(e) =>
-              authDispatch({ type: "EMAIL", payload: e.target.value })
-            }
-          />
+        <div className="input password-label">
+          <div>
+            <label className="conform-password-label">Confirm Password</label>
+          </div>
+          <div>
+            <input
+              type="password"
+              required
+              className="password-input user-input"
+              onChange={(e) =>
+                authDispatch({
+                  type: "CONFIRM_PASSWORD",
+                  payload: e.target.value,
+                })
+              }
+            />
+          </div>
         </div>
-      </div>
-      <div className="input password-label">
-        <div>
-          <label className="input-password-label">Password</label>
+        <button className="sign-up-btn" type="submit">
+          SIGN-UP
+        </button>
+        <div className="option">
+          <div>------------------------OR---------------------------</div>
+          <div className="already-user">
+            Already a user? <Link to="/login">LOGIN</Link>
+          </div>
         </div>
-        <div>
-          <input
-            type="password"
-            required
-            className="password-input user-input"
-            onChange={(e) =>
-              authDispatch({ type: "PASSWORD", payload: e.target.value })
-            }
-          />
-        </div>
-      </div>
-      <div className="input password-label">
-        <div>
-          <label className="conform-password-label">Confirm Password</label>
-        </div>
-        <div>
-          <input
-            type="password"
-            required
-            className="password-input user-input"
-            onChange={(e) =>
-              authDispatch({
-                type: "CONFIRM_PASSWORD",
-                payload: e.target.value,
-              })
-            }
-          />
-        </div>
-      </div>
-      <button className="sign-up-btn" type="submit">
-        SIGN-UP
-      </button>
-      <div className="option">
-        <div>----------------------------OR-------------------------------</div>
-        <div className="already-user">
-          Already a user? <Link to="/login">LOGIN</Link>
-        </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }

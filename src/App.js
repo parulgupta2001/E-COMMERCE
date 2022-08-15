@@ -6,6 +6,7 @@ import {
   Cart,
   Wishlist,
   ProductListing,
+  ProductDetail,
 } from "./frontend/pages/index";
 import { Navbar } from "./frontend/components/index";
 import { Routes, Route } from "react-router-dom";
@@ -16,6 +17,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/product" element={<ProductListing />} />
+        <Route path="/product/:productId" element={<ProductDetail />} />
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />

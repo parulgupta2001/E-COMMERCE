@@ -1,62 +1,20 @@
-import "../../../App.css";
 import { AiTwotoneHeart } from "react-icons/ai";
 import "./products.css";
-import { useFilter, useAuth, useCart, useWishlist } from "../../contexts/index";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useAuth, useCart, useWishlist, useFilter } from "../../contexts/index";
+import { useNavigate, Link } from "react-router-dom";
+import {
+  addToCart,
+  addToWishlist,
+  removeFromWishlist,
+} from "../../api-calls/index";
 
 export function Products() {
-  const { categoryData } = useFilter();
   const navigate = useNavigate();
   const { authState } = useAuth();
+  const { categoryData } = useFilter();
   const { token } = authState;
   const { setCartItems, cartItems } = useCart();
   const { wishlist, setWishlist } = useWishlist();
-
-  const addToCart = async (product, setCartItems, token) => {
-    try {
-      const response = await axios.post(
-        "/api/user/cart",
-        {
-          product,
-        },
-        {
-          headers: { authorization: token },
-        }
-      );
-      setCartItems(response.data.cart);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const addToWishlist = async (product, setWishlist, token) => {
-    try {
-      const response = await axios.post(
-        `/api/user/wishlist`,
-        {
-          product,
-        },
-        {
-          headers: { authorization: token },
-        }
-      );
-      setWishlist(response.data.wishlist);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const removeFromWishlist = async (id, setWishlist, token) => {
-    try {
-      const response = await axios.delete(`/api/user/wishlist/${id}`, {
-        headers: { authorization: token },
-      });
-      setWishlist(response.data.wishlist);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div className="main">
@@ -93,10 +51,23 @@ export function Products() {
                 }
               />
             )}
-            <img className="img-container" src={img} alt="product" />
-            <div> {name} </div>
-            <div>Rs. {price}</div>
-            <div> ★{rating} </div>
+            <Link to={`/product/${_id}`}>
+              <img className="img-container" src={img} alt="product" />
+              <div> {name} </div>
+              <strong>₹{price}</strong>
+              <div
+                style={{
+                  backgroundColor: "var(--border-color)",
+                  color: "black",
+                  width: "2rem",
+                  padding: "2px 7px",
+                  borderRadius: "14px",
+                  fontWeight: "500",
+                }}
+              >
+                {rating}★
+              </div>
+            </Link>
             {cartItems.find((item) => item._id === _id) ? (
               <div className="btn-container">
                 <button

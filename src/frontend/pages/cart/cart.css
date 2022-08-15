@@ -1,16 +1,16 @@
 .cart-container {
-  padding: 15rem;
+  padding: 10rem;
 }
 
 .cart-main-content {
   width: 35rem;
   margin-bottom: 3rem;
-  border: solid 1px var(--border-color);
+  border: solid 2px var(--border-color);
   border-radius: 0.5rem;
 }
 
 .cart-price-content {
-  border-left: solid 1px var(--border-color);
+  border-right: solid 2px var(--border-color);
   transform: translate(500px, 100px);
   height: 11rem;
   padding: 0.5rem;
@@ -20,6 +20,7 @@
   position: fixed;
   top: 12rem;
   left: 32rem;
+  border-left: solid 2px var(--border-color);
 }
 
 .cart-img-container {

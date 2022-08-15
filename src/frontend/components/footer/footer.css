@@ -4,8 +4,27 @@
   height: 8rem;
   width: 100%;
   display: flex;
-  align-items: center;
-  padding-left: 8rem;
+  justify-content: center;
   column-gap: 4rem;
-  margin: 5rem 0 0 12rem;
+  margin-top: 5rem;
+  padding: 1.5rem 0 1rem 0;
+  font-size: small;
+  z-index: 1;
+}
+
+.footer-content {
+  width: 7rem;
+}
+
+.address-content {
+  width: 14rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid grey;
+  margin-top: 0.6rem;
+}
+
+.footer-header {
+  padding-bottom: 0.6rem;
+  font-weight: 600;
+  font-size: 0.8rem;
 }

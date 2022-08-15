@@ -37,7 +37,7 @@ export function Login() {
   }, 3000);
 
   return (
-    <>
+    <div className="login">
       <form className="login-container" onSubmit={loginHandler}>
         <h3>LOGIN</h3>
         <div className="input email-label">
@@ -79,15 +79,13 @@ export function Login() {
           LOGIN
         </button>
         <div className="option">
-          <div>
-            ----------------------------OR-------------------------------
-          </div>
+          <div>------------------------OR---------------------------</div>
           <div className="need-account">
             Need an account?<Link to="/signup"> SIGN-UP</Link>
           </div>
         </div>
       </form>
       <div className="error-msg">{error}</div>
-    </>
+    </div>
   );
 }

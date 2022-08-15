@@ -16,7 +16,7 @@ export function Filter() {
   return (
     <aside className="sidebar">
       <div className="sorting">
-        <div>SORT BY</div>
+        <div className="filter_header">SORT BY</div>
         <div>
           <input
             type="radio"
@@ -73,7 +73,7 @@ export function Filter() {
       </div>
 
       <div className="product_rating">
-        <div>RATING</div>
+        <div className="filter_header">RATING</div>
         <div>
           <input
             type="radio"
@@ -120,7 +120,7 @@ export function Filter() {
       </div>
 
       <div>
-        <div> CATEGORY</div>
+        <div className="filter_header"> CATEGORY</div>
 
         <div>
           <input

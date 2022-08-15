@@ -14,6 +14,8 @@
   row-gap: 0.3rem;
   padding-bottom: 1rem;
   border-bottom: dotted 1.5px var(--border-color);
+  position: fixed;
+  z-index: 4;
 }
 
 .log-in:hover,
@@ -35,8 +37,8 @@
 }
 
 .logo {
-  height: 5rem;
-  width: 4rem;
+  height: 4.8rem;
+  width: 6rem;
 }
 
 .logo-container {
@@ -67,4 +69,18 @@
 
 .page-container {
   display: flex;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  height: 4rem;
+}
+
+.search-products {
+  background-color: whitesmoke;
+  font-size: 13px;
+  line-height: 1.8rem;
+  padding-left: 0.8rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

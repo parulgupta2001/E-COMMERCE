@@ -1,10 +1,9 @@
 @import "https://bricksui.netlify.app/styles/main-style.css";
 
 * {
-    --color-two:#1B74E4;
-    --click-color:red;
-  --background-color-one:white;
-  --background-color-two:black;
-  --border-color:gainsboro;
-
+  --color-two: #1b74e4;
+  --click-color: red;
+  --background-color-one: white;
+  --background-color-two: black;
+  --border-color: gainsboro;
 }

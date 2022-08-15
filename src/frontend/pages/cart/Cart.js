@@ -1,10 +1,17 @@
 import "./cart.css";
-import { useCart } from "../../contexts/index";
-import axios from "axios";
+import { useCart, useWishlist } from "../../contexts/index";
+import {
+  removeFromCart,
+  addToWishlist,
+  removeFromWishlist,
+  increment,
+  decrement,
+} from "../../api-calls/index";
 import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const { cartItems, setCartItems } = useCart();
+  const { wishlist, setWishlist } = useWishlist();
   const encodedToken = localStorage.getItem("token");
   const navigate = useNavigate();
 
@@ -17,53 +24,6 @@ function Cart() {
     (acc, current) => acc + current.qty,
     0
   );
-
-  const decrement = async (id, qty) => {
-    if (qty > 1) {
-      try {
-        const response = await axios.post(
-          `/api/user/cart/${id}`,
-          {
-            action: { type: "decrement" },
-          },
-          {
-            headers: { authorization: encodedToken },
-          }
-        );
-        setCartItems(response.data.cart);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
-
-  const increment = async (id) => {
-    try {
-      const response = await axios.post(
-        `/api/user/cart/${id}`,
-        {
-          action: { type: "increment" },
-        },
-        {
-          headers: { authorization: encodedToken },
-        }
-      );
-      setCartItems(response.data.cart);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const removeFromCart = async (id) => {
-    try {
-      const response = await axios.delete(`/api/user/cart/${id}`, {
-        headers: { authorization: encodedToken },
-      });
-      setCartItems(response.data.cart);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <>
@@ -88,14 +48,18 @@ function Cart() {
                       <div className="quantity-manager">
                         <div
                           className="counter-changer"
-                          onClick={() => decrement(_id, qty)}
+                          onClick={() =>
+                            decrement(_id, qty, encodedToken, setCartItems)
+                          }
                         >
                           -
                         </div>
                         <input type="number" value={qty} className="counter" />
                         <div
                           className="counter-changer"
-                          onClick={() => increment(_id)}
+                          onClick={() =>
+                            increment(_id, encodedToken, setCartItems)
+                          }
                         >
                           +
                         </div>
@@ -109,8 +73,56 @@ function Cart() {
                     </div>
                   </div>
                   <div className="cart-main-content-bottom">
-                    <button onClick={() => removeFromCart(_id)}>REMOVE</button>{" "}
-                    |<button>MOVE TO WISHLIST</button>
+                    <button
+                      onClick={() =>
+                        removeFromCart(_id, encodedToken, setCartItems)
+                      }
+                    >
+                      REMOVE
+                    </button>{" "}
+                    |
+                    {wishlist.some((item) => item._id === _id) ? (
+                      <button
+                        onClick={() => {
+                          removeFromWishlist(_id, setWishlist, encodedToken);
+                          addToWishlist(
+                            {
+                              img,
+                              name,
+                              rating,
+                              _id,
+                              price,
+                              delivery,
+                            },
+                            setWishlist,
+                            encodedToken
+                          );
+                          removeFromCart(_id, encodedToken, setCartItems);
+                        }}
+                      >
+                        MOVE TO WISHLIST
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          addToWishlist(
+                            {
+                              img,
+                              name,
+                              rating,
+                              _id,
+                              price,
+                              delivery,
+                            },
+                            setWishlist,
+                            encodedToken
+                          );
+                          removeFromCart(_id, encodedToken, setCartItems);
+                        }}
+                      >
+                        MOVE TO WISHLIST
+                      </button>
+                    )}
                   </div>
                 </div>
               )

@@ -1,22 +1,33 @@
-.sidebar{
-    color:var(--background-color-two);
-    width:12.5rem;
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.8rem;
-    line-height: 1.4rem;
-    margin-top:3rem ;
+.sidebar {
+  color: var(--background-color-two);
+  width: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8rem;
+  line-height: 1.4rem;
+  margin-top: 3rem;
+  padding: 1.2rem;
+  font-size: 0.85rem;
+  z-index: 3;
 }
 
-label,input {
-    display: inline;
-}  
-
-.sorting,.stock_and_delivery,.product_rating{
-  border-bottom: dotted 2px var(--border-color) ;
+label,
+input {
+  display: inline;
 }
 
-.clear-btn{
+.sorting,
+.stock_and_delivery,
+.product_rating {
+  border-bottom: dotted 2px var(--border-color);
+}
+
+.clear-btn {
   font-size: small;
-  width:8rem;
+  width: 8rem;
+}
+
+.filter_header {
+  font-weight: 600;
+  padding-bottom: 0.5rem;
 }
