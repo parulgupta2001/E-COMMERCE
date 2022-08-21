@@ -1,25 +1,81 @@
+.shop-now-banner {
+  background-color: var(--background-color-three);
+  color: var(--background-color-one);
+  position: absolute;
+  top: 24rem;
+  text-decoration: none;
+  width: 100%;
+  height: 18rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7rem;
+  font-family: sans-serif;
+}
+
+.shop-now-banner:hover {
+  text-decoration: underline 5px;
+}
+
 .landing-page-img {
-  padding-top: 5.5rem;
-  width: 50%;
+  padding-top: 10rem;
+  width: 100%;
+  height: 32rem;
+  position: relative;
 }
 
 .stacked-list-item {
-  border: solid 1px var(--color-two);
-  width: 20rem;
-  height: 4rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--border-color);
+  width: 18rem;
+  height: fit-content;
+  position: relative;
   cursor: pointer;
 }
 
 .img-category-container {
   display: flex;
-  padding-top: 3rem;
   column-gap: 6rem;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .list-container {
-  padding-top: 9rem;
+  display: flex;
+  column-gap: 0.7rem;
+  padding-top: 2rem;
+  flex-wrap: wrap;
+  margin-left: 1rem;
+}
+
+.shop-category-banner {
+  background-color: var(--background-color-two);
+  color: var(--background-color-one);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+  z-index: 2;
+}
+
+.category-img {
+  width: 18rem;
+  height: 24rem;
+}
+
+.category-name {
+  position: absolute;
+  color: var(--background-color-one);
+  top: 20rem;
+  display: flex;
+  justify-content: center;
+  font-weight: var(--standard-font-weight);
+  font-size: x-large;
+  width: 100%;
+  padding: 1.2rem 0 0.8rem 0;
+  z-index: 3;
+  background-color: var(--background-color-three);
+}
+
+.category-name:hover {
+  text-decoration: underline;
 }

@@ -1,22 +1,39 @@
-.sidebar{
-    color:var(--background-color-two);
-    width:12.5rem;
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.8rem;
-    line-height: 1.4rem;
-    margin-top:3rem ;
+.sidebar {
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.4rem;
+  line-height: 1.4rem;
+  position: fixed;
+  left: 0;
+  height: fit-content;
+  margin-top: 3rem;
+  padding: 1rem;
+  z-index: 3;
+  font-weight: var(--standard-font-weight);
+  background-color: var(--background-color-one);
+  border-radius: 0.5rem;
 }
 
-label,input {
-    display: inline;
-}  
-
-.sorting,.stock_and_delivery,.product_rating{
-  border-bottom: dotted 2px var(--border-color) ;
+label,
+.filter-input {
+  display: inline;
 }
 
-.clear-btn{
-  font-size: small;
-  width:8rem;
+.clear-btn {
+  font-weight: var(--standard-font-weight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-two);
+  border: none;
+  color: var(--background-color-one);
+  border-radius: 6px;
+  padding: 0.2rem;
+}
+
+.filter_header {
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
 }

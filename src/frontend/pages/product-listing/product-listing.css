@@ -1,3 +1,5 @@
-.product-container{
-    padding-top:8rem;
+.product-container {
+  display: flex;
+  justify-content: center;
+  padding: 7rem 2rem 2rem 0;
 }

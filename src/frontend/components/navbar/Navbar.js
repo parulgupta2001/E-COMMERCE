@@ -1,10 +1,12 @@
-import { FcSearch } from "react-icons/fc";
-import { FaShoppingCart } from "react-icons/fa";
-import { AiFillHeart } from "react-icons/ai";
+import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
+import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
+import { BiLogIn, BiLogOut } from "react-icons/bi";
 import "./navbar.css";
 import "../../../App.css";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth, useCart, useWishlist } from "../../contexts/index";
+import { toast } from "react-toastify";
+import { useAuth, useCart, useWishlist, useFilter } from "../../contexts/index";
 
 function Navbar() {
   const { authState, authDispatch } = useAuth();
@@ -12,33 +14,56 @@ function Navbar() {
   const navigate = useNavigate();
   const { cartItems } = useCart();
   const { wishlist } = useWishlist();
+  const { categoryData } = useFilter();
+  const [searchProduct, setSearchProduct] = useState("");
 
   function logoutHandler(e) {
     e.preventDefault();
     localStorage.removeItem("token");
     authDispatch({ type: "TOKEN", payload: null });
-    navigate("/product");
+
+    localStorage.removeItem("user");
+    authDispatch({ type: "USER", payload: null });
+    toast.success("Logout Successful");
+    navigate("/");
   }
 
   function loginHandler() {
     navigate("/login");
   }
 
+  function search(input, categoryData) {
+    if (input.trim().length === 0) {
+      return null;
+    } else {
+      return categoryData.filter((product) =>
+        product.name.toLowerCase().includes(input.toLowerCase())
+      );
+    }
+  }
+
   return (
     <nav class="navigation-bar">
       <div className="upper-nav">
-        <Link to="/signup">
-          <button className="sign-up">Sign up</button>
-        </Link>
+        <FaUserAlt
+          title="Profile"
+          className="profile-icon"
+          onClick={() => navigate("/profile")}
+        />
         {token ? (
-          <button className="log-out" onClick={logoutHandler}>
-            Logout
-          </button>
+          <div className="log-out" onClick={logoutHandler}>
+            <BiLogOut className="log-out-icon" />
+            <div>Logout</div>
+          </div>
         ) : (
-          <button className="log-in" onClick={loginHandler}>
-            Login
-          </button>
+          <div className="log-in" onClick={loginHandler}>
+            <BiLogIn className="log-in-icon" />
+            <div>Login</div>
+          </div>
         )}
+        <div className="new-account" onClick={() => navigate("/signup")}>
+          Create Account
+        </div>
       </div>
       <div className="main-nav">
         <div className="logo-container" onClick={() => navigate("/")}>
@@ -50,9 +75,21 @@ function Navbar() {
           SportsTown
         </div>
         <div className="search-bar">
-          <input type="search" placeholder="Search..."></input>
-          <FcSearch />
+          <div>
+            <input
+              placeholder="Search..."
+              onChange={(e) =>
+                setSearchProduct(search(e.target.value, categoryData))
+              }
+            />
+            <AiOutlineSearch className=" product-search-icon" />
+          </div>
+          {searchProduct &&
+            searchProduct.map(({ name }) => (
+              <span className="search-products">{name}</span>
+            ))}
         </div>
+
         <div className="page-container">
           <div>
             <Link to={token ? "/wishlist" : "/login"}>

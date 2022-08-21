@@ -1,0 +1,10 @@
+.delivery-address-container {
+  padding: 10rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delivery-address-container h2 {
+  text-decoration: underline var(--color-two);
+}

@@ -1,12 +1,21 @@
 import "./cart.css";
-import { useCart } from "../../contexts/index";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useCart, useWishlist } from "../../contexts/index";
+import { toast } from "react-toastify";
+import {
+  removeFromCart,
+  addToWishlist,
+  increment,
+  decrement,
+  loadScript,
+} from "../../api-calls/index";
+import { useNavigate, useLocation, Outlet } from "react-router-dom";
 
 function Cart() {
   const { cartItems, setCartItems } = useCart();
+  const { wishlist, setWishlist } = useWishlist();
   const encodedToken = localStorage.getItem("token");
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const totalPrice = cartItems.reduce(
     (acc, current) => acc + current.price * current.qty,
@@ -18,99 +27,136 @@ function Cart() {
     0
   );
 
-  const decrement = async (id, qty) => {
-    if (qty > 1) {
-      try {
-        const response = await axios.post(
-          `/api/user/cart/${id}`,
-          {
-            action: { type: "decrement" },
-          },
-          {
-            headers: { authorization: encodedToken },
-          }
-        );
-        setCartItems(response.data.cart);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
+  async function displayRazorpay(e) {
+    e.preventDefault();
+    const response = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
 
-  const increment = async (id) => {
-    try {
-      const response = await axios.post(
-        `/api/user/cart/${id}`,
-        {
-          action: { type: "increment" },
-        },
-        {
-          headers: { authorization: encodedToken },
-        }
-      );
-      setCartItems(response.data.cart);
-    } catch (error) {
-      console.log(error);
+    if (!response) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
     }
-  };
 
-  const removeFromCart = async (id) => {
-    try {
-      const response = await axios.delete(`/api/user/cart/${id}`, {
-        headers: { authorization: encodedToken },
-      });
-      setCartItems(response.data.cart);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    const options = {
+      key: "rzp_test_XZwY6inMCr4v8H",
+      currency: "INR",
+      amount: (totalPrice - 80) * 100,
+      name: "SportsTown",
+      description: "Thank you for trusting us",
+      image: "",
+      handler: async (response) => {
+        const { razorpay_payment_id } = await response;
+        const orderData = {
+          orderAmount: totalPrice,
+          razorpayId: razorpay_payment_id,
+        };
+        toast.success("Order Placed Successfully");
+        navigate("/");
+        setCartItems([]);
+      },
+      prefill: {
+        name: "SportsTown",
+        email: "payments@SportsTown.com",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.on("payment.failed", function (response) {});
+    paymentObject.open();
+  }
 
   return (
-    <>
+    <div>
       {cartItems.length === 0 ? (
-        <div className="empty-cart-msg">
-          <h3>Your SportsTown Basket is empty</h3>
-          <button onClick={() => navigate("/product")}>Add items</button>
+        <div className="empty-container">
+          <img
+            src="http://res.cloudinary.com/dwhran9qg/image/upload/Image/undraw_empty_cart_co35_1_g7r5qy.svg"
+            className="cart-empty-container-img"
+          />
+          <div className="empty-container-msg">
+            <h2>Your SportsTown Basket is empty</h2>
+            <h3 onClick={() => navigate("/product")}>Add Products</h3>
+          </div>
         </div>
       ) : (
         <div className="cart-container">
           <div>
             {cartItems.map(
               ({ img, name, price, rating, delivery, qty, _id }) => (
-                <div className="cart-main-content">
-                  <div className="cart-main-content-middle">
+                <div className="main-content">
+                  <div className="main-content-middle">
                     <div>
                       <img
-                        className="cart-img-container"
+                        className="main-content-img"
                         src={img}
                         alt="product"
                       />
                       <div className="quantity-manager">
                         <div
                           className="counter-changer"
-                          onClick={() => decrement(_id, qty)}
+                          onClick={() =>
+                            decrement(_id, qty, encodedToken, setCartItems)
+                          }
                         >
                           -
                         </div>
-                        <input type="number" value={qty} className="counter" />
+                        <div>{qty}</div>
                         <div
                           className="counter-changer"
-                          onClick={() => increment(_id)}
+                          onClick={() =>
+                            increment(_id, encodedToken, setCartItems)
+                          }
                         >
                           +
                         </div>
                       </div>
                     </div>
                     <div className="img-description">
-                      <div> {name} </div>
-                      <div> Rs {price} </div>
-                      <div>★{rating}</div>
-                      <div>{delivery}</div>
+                      <h3>{name}</h3>
+                      <div className="img-description-rating">★{rating}</div>
+                      <h4>{delivery}</h4>
+                      <div className="card-price">₹{price} </div>
                     </div>
                   </div>
-                  <div className="cart-main-content-bottom">
-                    <button onClick={() => removeFromCart(_id)}>REMOVE</button>{" "}
-                    |<button>MOVE TO WISHLIST</button>
+                  <div className="main-content-bottom">
+                    <button
+                      onClick={() =>
+                        removeFromCart(_id, encodedToken, setCartItems)
+                      }
+                    >
+                      Remove
+                    </button>
+                    |
+                    {wishlist.some((item) => item._id === _id) ? (
+                      <button
+                        onClick={() => {
+                          removeFromCart(_id, encodedToken, setCartItems);
+                        }}
+                      >
+                        Move To Wishlist
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          addToWishlist(
+                            {
+                              img,
+                              name,
+                              rating,
+                              _id,
+                              price,
+                              delivery,
+                            },
+                            setWishlist,
+                            encodedToken
+                          );
+                          removeFromCart(_id, encodedToken, setCartItems);
+                        }}
+                      >
+                        Move To Wishlist
+                      </button>
+                    )}
                   </div>
                 </div>
               )
@@ -119,28 +165,47 @@ function Cart() {
 
           <div className="cart-price-content">
             <div className="cart-price-content-upper">
-              <div>PRICE DETAILS ({totalCartItems} items)</div>
+              <h4>Price Details ({totalCartItems} items)</h4>
             </div>
             <div className="cart-price-content-middle">
               <div className="item-label">
                 <div>Price</div>
-                <div>Coupons for you</div>
+                <div>Coupon for you</div>
                 <div>Delivery Charges</div>
               </div>
               <div className="item-label">
-                <div> Rs{totalPrice}</div>
-                <div>- Rs 50</div>
-                <div> Rs 40</div>
+                <div>₹{totalPrice}</div>
+                <div>₹80</div>
+                <div>FREE</div>
               </div>
             </div>
             <div className="cart-price-content-bottom">
-              <div>Total Amount</div>
-              <div>Rs{totalPrice - 10}</div>
+              <div className="total-amount">
+                <h3>Total Amount</h3>
+                <h3>₹{totalPrice - 80}</h3>
+              </div>
+              {pathname === "/cart/checkout" && (
+                <div>
+                  <button className="place-order-btn" onClick={displayRazorpay}>
+                    Place order
+                  </button>
+                  <Outlet />
+                </div>
+              )}
+
+              {pathname === "/cart" && (
+                <button
+                  className="place-order-btn"
+                  onClick={() => navigate("/deliveryAddress")}
+                >
+                  Buy Now
+                </button>
+              )}
             </div>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

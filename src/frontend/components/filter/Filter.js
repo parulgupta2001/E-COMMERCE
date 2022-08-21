@@ -16,11 +16,12 @@ export function Filter() {
   return (
     <aside className="sidebar">
       <div className="sorting">
-        <div>SORT BY</div>
+        <div className="filter_header">Sort By</div>
         <div>
           <input
             type="radio"
             name="sort"
+            className="filter-input"
             onClick={() => dispatch({ type: "SORT", payload: "low_to_high" })}
             checked={sortBy === "low_to_high"}
           ></input>
@@ -31,6 +32,7 @@ export function Filter() {
           <input
             type="radio"
             name="sort"
+            className="filter-input"
             onClick={() => dispatch({ type: "SORT", payload: "high_to_low" })}
             checked={sortBy === "high_to_low"}
           ></input>
@@ -40,6 +42,7 @@ export function Filter() {
         <div>
           <input
             type="range"
+            className="filter-input"
             min="700"
             max="10000"
             name="range"
@@ -56,6 +59,7 @@ export function Filter() {
         <div>
           <input
             type="checkbox"
+            className="filter-input"
             onClick={() => dispatch({ type: "INVENTORY" })}
             checked={inventoryAll}
           ></input>
@@ -65,6 +69,7 @@ export function Filter() {
         <div>
           <input
             type="checkbox"
+            className="filter-input"
             onClick={() => dispatch({ type: "DELIVERY" })}
             checked={deliveryAll}
           ></input>
@@ -73,11 +78,12 @@ export function Filter() {
       </div>
 
       <div className="product_rating">
-        <div>RATING</div>
+        <div className="filter_header">Rating</div>
         <div>
           <input
             type="radio"
             name="rating"
+            className="filter-input"
             onClick={() =>
               dispatch({ type: "RATING", payload: "four_&_above" })
             }
@@ -90,6 +96,7 @@ export function Filter() {
           <input
             type="radio"
             name="rating"
+            className="filter-input"
             onClick={() =>
               dispatch({ type: "RATING", payload: "three_&_above" })
             }
@@ -102,6 +109,7 @@ export function Filter() {
           <input
             type="radio"
             name="rating"
+            className="filter-input"
             onClick={() => dispatch({ type: "RATING", payload: "two_&_above" })}
             checked={ratingFilter === "two_&_above"}
           ></input>
@@ -112,6 +120,7 @@ export function Filter() {
           <input
             type="radio"
             name="rating"
+            className="filter-input"
             onClick={() => dispatch({ type: "RATING", payload: "one_&_above" })}
             checked={ratingFilter === "one_&_above"}
           ></input>
@@ -120,16 +129,17 @@ export function Filter() {
       </div>
 
       <div>
-        <div> CATEGORY</div>
+        <div className="filter_header"> Category</div>
 
         <div>
           <input
             type="radio"
             name="active wear"
+            className="filter-input"
             onClick={() =>
-              dispatch({ type: "CATEGORY", payload: "active_wear" })
+              dispatch({ type: "CATEGORY", payload: "Active Wear" })
             }
-            checked={categoryAll === "active_wear"}
+            checked={categoryAll === "Active Wear"}
           ></input>
           <label for="active_wear">Active Wear</label>
         </div>
@@ -138,8 +148,9 @@ export function Filter() {
           <input
             type="radio"
             name="cricket"
-            onClick={() => dispatch({ type: "CATEGORY", payload: "cricket" })}
-            checked={categoryAll === "cricket"}
+            className="filter-input"
+            onClick={() => dispatch({ type: "CATEGORY", payload: "Cricket" })}
+            checked={categoryAll === "Cricket"}
           ></input>
           <label for="cricket">Cricket</label>
         </div>
@@ -148,8 +159,9 @@ export function Filter() {
           <input
             type="radio"
             name="football"
-            onClick={() => dispatch({ type: "CATEGORY", payload: "football" })}
-            checked={categoryAll === "football"}
+            className="filter-input"
+            onClick={() => dispatch({ type: "CATEGORY", payload: "Football" })}
+            checked={categoryAll === "Football"}
           ></input>
           <label for="football">Football</label>
         </div>
@@ -158,10 +170,11 @@ export function Filter() {
           <input
             type="radio"
             name="fitness accessories"
+            className="filter-input"
             onClick={() =>
-              dispatch({ type: "CATEGORY", payload: "fitness_accessories" })
+              dispatch({ type: "CATEGORY", payload: "Fitness Accessories" })
             }
-            checked={categoryAll === "fitness_accessories"}
+            checked={categoryAll === "Fitness Accessories"}
           ></input>
           <label for="fitness_accessories">Fitness Accessories</label>
         </div>
@@ -170,10 +183,11 @@ export function Filter() {
           <input
             type="radio"
             name="fitness equipments"
+            className="filter-input"
             onClick={() =>
-              dispatch({ type: "CATEGORY", payload: "fitness_equipments" })
+              dispatch({ type: "CATEGORY", payload: "Fitness Equipments" })
             }
-            checked={categoryAll === "fitness_equipments"}
+            checked={categoryAll === "Fitness Equipments"}
           ></input>
           <label for="fitness_equipment">Fitness Equipment</label>
         </div>
@@ -182,7 +196,7 @@ export function Filter() {
         className="clear-btn"
         onClick={() => dispatch({ type: "CLEAR_ALL" })}
       >
-        CLEAR ALL
+        Reset All Filters
       </button>
     </aside>
   );
