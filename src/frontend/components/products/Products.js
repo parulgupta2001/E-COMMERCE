@@ -23,7 +23,7 @@ export function Products() {
           <div className="img-card-container">
             {wishlist.find((item) => item._id === _id) ? (
               <AiTwotoneHeart
-                className="redColor"
+                className="red-color heart"
                 onClick={() =>
                   token
                     ? removeFromWishlist(_id, setWishlist, token)
@@ -32,7 +32,7 @@ export function Products() {
               />
             ) : (
               <AiTwotoneHeart
-                className="greyColor"
+                className="grey-color heart"
                 onClick={() =>
                   token
                     ? addToWishlist(
@@ -51,22 +51,12 @@ export function Products() {
                 }
               />
             )}
-            <Link to={`/product/${_id}`}>
+            <Link to={`/product/${_id}`} className="img-description">
               <img className="img-container" src={img} alt="product" />
-              <div> {name} </div>
-              <strong>₹{price}</strong>
-              <div
-                style={{
-                  backgroundColor: "var(--border-color)",
-                  color: "black",
-                  width: "2rem",
-                  padding: "2px 7px",
-                  borderRadius: "14px",
-                  fontWeight: "500",
-                }}
-              >
-                {rating}★
-              </div>
+              <h4>{name}</h4>
+              <div className="img-description-rating">{rating}★</div>
+              <h5>{delivery}</h5>
+              <div className="card-price">₹{price}</div>
             </Link>
             {cartItems.find((item) => item._id === _id) ? (
               <div className="btn-container">

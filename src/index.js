@@ -8,6 +8,7 @@ import {
   AuthProvider,
   CartProvider,
   WishlistProvider,
+  UserProvider,
 } from "./frontend/contexts/index";
 import { BrowserRouter } from "react-router-dom";
 
@@ -21,7 +22,9 @@ ReactDOM.render(
         <WishlistProvider>
           <CartProvider>
             <FilterProvider>
-              <App />
+              <UserProvider>
+                <App />
+              </UserProvider>
             </FilterProvider>
           </CartProvider>
         </WishlistProvider>

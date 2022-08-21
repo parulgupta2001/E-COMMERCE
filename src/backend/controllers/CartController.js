@@ -12,9 +12,10 @@ import { formatDate, requiresAuth } from "../utils/authUtils";
  * send GET Request at /api/user/cart
  * */
 export const getCartItemsHandler = function (schema, request) {
-  const userId = requiresAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
+  const userId = user?._id;
   if (!userId) {
-    return new Response(
+    new Response(
       404,
       {},
       {
@@ -33,10 +34,11 @@ export const getCartItemsHandler = function (schema, request) {
  * */
 
 export const addItemToCartHandler = function (schema, request) {
-  const userId = requiresAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
+  const userId = user?._id;
   try {
     if (!userId) {
-      return new Response(
+      new Response(
         404,
         {},
         {
@@ -71,10 +73,11 @@ export const addItemToCartHandler = function (schema, request) {
  * */
 
 export const removeItemFromCartHandler = function (schema, request) {
-  const userId = requiresAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
+  const userId = user?._id;
   try {
     if (!userId) {
-      return new Response(
+      new Response(
         404,
         {},
         {
@@ -106,10 +109,11 @@ export const removeItemFromCartHandler = function (schema, request) {
 
 export const updateCartItemHandler = function (schema, request) {
   const productId = request.params.productId;
-  const userId = requiresAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
+  const userId = user?._id;
   try {
     if (!userId) {
-      return new Response(
+      new Response(
         404,
         {},
         {

@@ -1,13 +1,10 @@
-html {
-  overflow-x: hidden;
-}
-
-.shop_now_banner {
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
+.shop-now-banner {
+  background-color: var(--background-color-three);
+  color: var(--background-color-one);
   position: absolute;
   top: 24rem;
-  width: 100rem;
+  text-decoration: none;
+  width: 100%;
   height: 18rem;
   display: flex;
   justify-content: center;
@@ -16,29 +13,22 @@ html {
   font-family: sans-serif;
 }
 
-.shop_now_banner:hover {
+.shop-now-banner:hover {
   text-decoration: underline 5px;
 }
 
 .landing-page-img {
   padding-top: 10rem;
-  width: 100rem;
+  width: 100%;
   height: 32rem;
   position: relative;
 }
 
 .stacked-list-item {
-  /* border: solid 1px var(--color-two); */
-  /* width: 20rem; */
-  /* height: 4rem; */
-  /* padding: 3rem; */
   display: flex;
   width: 18rem;
   height: fit-content;
   position: relative;
-  /* align-items: center;
-  justify-content: center; */
-  /* background-color: var(--border-color); */
   cursor: pointer;
 }
 
@@ -57,25 +47,35 @@ html {
   margin-left: 1rem;
 }
 
-.shop_category_banner {
-  background-color: black;
-  color: white;
-  width: 100rem;
+.shop-category-banner {
+  background-color: var(--background-color-two);
+  color: var(--background-color-one);
+  width: 100%;
   display: flex;
   justify-content: center;
   padding: 2px;
   z-index: 2;
 }
 
-.category_img {
+.category-img {
   width: 18rem;
-  height: 22rem;
+  height: 24rem;
 }
 
-.category_name {
+.category-name {
   position: absolute;
-  top: -1.1rem;
-  left: 6rem;
-  font-weight: 700;
+  color: var(--background-color-one);
+  top: 20rem;
+  display: flex;
+  justify-content: center;
+  font-weight: var(--standard-font-weight);
+  font-size: x-large;
+  width: 100%;
+  padding: 1.2rem 0 0.8rem 0;
   z-index: 3;
+  background-color: var(--background-color-three);
+}
+
+.category-name:hover {
+  text-decoration: underline;
 }

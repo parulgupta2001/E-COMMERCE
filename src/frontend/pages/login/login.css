@@ -1,43 +1,84 @@
-.login {
+.authorization-page {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   padding-top: 12rem;
 }
 
-.login-container {
+.authorization-container {
   display: flex;
   width: 20rem;
-  height: 25rem;
   align-items: center;
   flex-direction: column;
   row-gap: 1rem;
-  padding: 0.5rem;
   border-radius: 5px;
   background-color: rgb(0, 0, 0, 0.15);
 }
 
-.user-input {
-  width: 18rem;
-  height: 0.5rem;
-  border-radius: 5px;
+.login-container {
+  height: 27rem;
 }
 
-.login-btn {
+.authorization-container h2 {
+  padding-bottom: 2rem;
+}
+
+.input {
+  font-weight: var(--standard-font-weight);
+}
+
+.user-input {
+  width: 18rem;
+  height: 1.5rem;
+  border-radius: 6px;
+}
+
+.actual-btn {
   background-color: var(--color-two);
   color: var(--background-color-one);
-  width: 19rem;
+}
+
+.authorization-page-btn {
+  width: 18rem;
   border-radius: 6px;
   cursor: pointer;
   height: 2rem;
   border: none;
-}
-
-.need-account {
   font-size: 0.9rem;
+  font-weight: var(--standard-font-weight);
 }
 
-.error-msg {
-  color: var(--click-color);
-  /* transform: translate(500px, 30px); */
+.testing-btn {
+  background-color: rgb(0, 0, 0, 0.25);
+  color: black;
+}
+
+.testing-btn:hover {
+  background-color: rgb(0, 0, 0, 0.2);
+}
+
+.actual-btn:hover {
+  background-color: #55aaff;
+}
+
+.other-option-link {
+  text-decoration: none;
+  color: var(--color-two);
+  font-weight: var(--standard-font-weight);
+}
+
+.other-option-link:hover {
+  text-decoration: underline;
+}
+
+.already-user-or-not {
+  display: flex;
+  column-gap: 5px;
+  font-weight: var(--standard-font-weight);
+}
+
+.submit-buttons {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  row-gap: 1rem;
 }

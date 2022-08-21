@@ -1,0 +1,23 @@
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.user-info-icon {
+  height: 1.3rem;
+  width: 1.3rem;
+  padding-bottom: 0.8rem;
+}
+
+.user-info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  line-height: 0;
+  font-weight: 700;
+  border-radius: 5px;
+  box-shadow: var(--standard-box-shadow);
+}

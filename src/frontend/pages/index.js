@@ -5,3 +5,5 @@ export { Login } from "./login/Login";
 export { Cart } from "./cart/Cart";
 export { Wishlist } from "./wishlist/Wishlist";
 export { ProductDetail } from "./product-detail/Product-detail";
+export { Profile } from "./profile/Profile";
+export { DeliveryAddress } from "./delivery-address/Delivery-address";

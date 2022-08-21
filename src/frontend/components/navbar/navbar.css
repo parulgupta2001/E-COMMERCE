@@ -3,42 +3,70 @@
   color: var(--background-color-one);
   height: 1.5rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
-  padding: 0.3rem 2rem;
-  column-gap: 2rem;
+  padding: 0.3rem 1rem;
+  align-items: center;
+  column-gap: 1.2rem;
 }
 
 .navigation-bar {
+  display: flex;
   flex-direction: column;
   background-color: var(--background-color-one);
-  row-gap: 0.3rem;
-  padding-bottom: 1rem;
+  width: 100%;
   border-bottom: dotted 1.5px var(--border-color);
   position: fixed;
+  flex-wrap: wrap;
   z-index: 4;
 }
 
+.log-in,
+.log-out,
+.new-account,
+.profile-icon {
+  font-weight: var(--standard-font-weight);
+  display: flex;
+  column-gap: 0.2rem;
+  cursor: pointer;
+}
+
 .log-in:hover,
-.sign-up:hover {
+.log-out:hover,
+.new-account:hover {
   text-decoration: underline;
+}
+
+.log-in-icon,
+.log-out-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .main-nav {
   display: flex;
   justify-content: space-around;
-  column-gap: 10rem;
   align-items: center;
-  padding-right: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .search-bar input {
   width: 30rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+}
+
+.product-search-icon {
+  margin-left: -1.6rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 4.3rem;
 }
 
 .logo {
   height: 4.8rem;
   width: 6rem;
+  cursor: pointer;
 }
 
 .logo-container {
@@ -52,28 +80,34 @@
 
 .shopping-cart,
 .wishlist {
-  width: 8rem;
+  width: 2rem;
   height: 2rem;
 }
 
 .dot {
   border-radius: 50%;
-  transform: translate(70px, -45px);
+  position: absolute;
+  top: 3.2rem;
   background-color: var(--color-two);
   color: var(--background-color-one);
   height: 1.3rem;
   width: 1.3rem;
   display: flex;
   justify-content: center;
+  margin-left: 1.2rem;
+  align-items: center;
 }
 
 .page-container {
   display: flex;
+  column-gap: 2rem;
 }
 
 .search-bar {
   display: flex;
   flex-direction: column;
+  padding-top: 1.8rem;
+  border-radius: 2rem;
   height: 4rem;
 }
 
@@ -82,5 +116,5 @@
   font-size: 13px;
   line-height: 1.8rem;
   padding-left: 0.8rem;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: var(--standard-box-shadow);
 }

@@ -88,21 +88,21 @@ const getCategoryData = (products, categoryAll) => {
     return products;
   }
 
-  if (categoryAll === "active_wear") {
+  if (categoryAll === "Active Wear") {
     return products.filter((item) => item.categoryName === "Active Wear");
   }
-  if (categoryAll === "cricket") {
+  if (categoryAll === "Cricket") {
     return products.filter((item) => item.categoryName === "Cricket");
   }
-  if (categoryAll === "football") {
+  if (categoryAll === "Football") {
     return products.filter((item) => item.categoryName === "Football");
   }
-  if (categoryAll === "fitness_accessories") {
+  if (categoryAll === "Fitness Accessories") {
     return products.filter(
       (item) => item.categoryName === "Fitness Accessories"
     );
   }
-  if (categoryAll === "fitness_equipments") {
+  if (categoryAll === "Fitness Equipments") {
     return products.filter((item) => item.categoryName === "Fitness Equipment");
   }
 };

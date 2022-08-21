@@ -1,0 +1,59 @@
+.address-modal-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  display: flex;
+  padding-top: 3rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color-three);
+}
+
+.address-modal {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  width: fit-content;
+  padding: 2rem;
+  border-radius: 5px;
+  font-weight: var(--standard-font-weight);
+  box-shadow: var(--standard-box-shadow);
+}
+
+.address-modal input {
+  width: 15rem;
+  height: 1.3rem;
+  border-radius: 4px;
+}
+
+.address-modal-btn-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.address-modal-btn {
+  padding: 0.5rem;
+  border: none;
+  font-weight: var(--standard-font-weight);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.address-modal-btn:hover {
+  text-decoration: underline;
+}
+
+.close-address-btn {
+  background-color: var(--background-color-three);
+}
+
+.edit-address-btn {
+  background-color: var(--color-two);
+  color: var(--background-color-one);
+}

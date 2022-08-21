@@ -9,7 +9,7 @@ export const products = [
   {
     _id: uuid(),
     img: "http://res.cloudinary.com/dwhran9qg/image/upload/Cricket/ball_woy6oc.jpg",
-    name: "NX Cricket Ball White - Season Ball ",
+    name: "NX Cricket White Season Ball ",
     price: 2999,
     rating: 3.7,
     stock: "In Stock",
@@ -22,11 +22,11 @@ export const products = [
   {
     _id: uuid(),
     img: "http://res.cloudinary.com/dwhran9qg/image/upload/Fitness Accessories/Yoga_mat_hn8ctw.jpg",
-    name: "Stag Yoga Mantra Asana Mat (6MM)",
+    name: "Stag Yoga Mantra Asana Mat",
     price: 1050,
     rating: 3.1,
     stock: "Out Of Stock",
-    delivery: "minimum 3 days",
+    delivery: "Standard Delivery",
     categoryName: "Fitness Accessories",
     productDetail:
       " - Dimension: 6ft × 2ft, Thickness: 6mm, Color: Black/Gold. Produces exceptional resilience and incomparable cushioning. Offers terrific slip-resistance even with perspiration on the mat. Ideal for yoga, Pilates, stretching and toning workouts. EVA Material provides proper support. Potrayel of different Asanas. Washable & easy to store",
@@ -46,11 +46,11 @@ export const products = [
   {
     _id: uuid(),
     img: "http://res.cloudinary.com/dwhran9qg/image/upload/Fitness Accessories/Rope_nolt1p.jpg",
-    name: "Body Sculpture Skip Rope With Counter",
+    name: "Skip Rope With Counter",
     price: 749,
     rating: 3.5,
     stock: "In Stock",
-    delivery: "minimum 3 days",
+    delivery: "Standard Delivery",
     categoryName: "Fitness Accessories",
     productDetail:
       "igera twist and kink resistant wire increases reliability, speed and endurance. Skipping is one of the best cardio vascular exercises that produces results, is cheap and can be done anywhere, anytime. Good for shedding weight fast, toning up and maintaining muscle tone. Skipping ropes are an excellent tool for any fitness level or goal. They are for kids playing games, adults exercise, cross fit, weight losing etc.",
@@ -58,7 +58,7 @@ export const products = [
   {
     _id: uuid(),
     img: "http://res.cloudinary.com/dwhran9qg/image/upload/Fitness Equipments/Treadmill_xbrvqy.jpg",
-    name: "Powermax TDA-600 Motorized Treadmill",
+    name: "TDA-600 Motorized Treadmill",
     price: 9000,
     rating: 2.9,
     stock: "In Stock",
@@ -74,7 +74,7 @@ export const products = [
     price: 3495,
     rating: 4.6,
     stock: "Out of Stock",
-    delivery: "minimum 3 days",
+    delivery: "Standard Delivery",
     categoryName: "Football",
     productDetail:
       "Product Dimension: 33 x 23 x 11 cm; 550 Grams, Date First Available 28 December 2020,Manufacturer :Nike,ASIN :  B07HYXKF19,tem model number  :  844436,Department  :  Mens,Manufacturer  :  Nike,Item Weight  :  550 g,Item Dimensions LxWxH  :  33 x 23 x 11 Centimeters,Net Quantity  :  1 count,Generic Name  :  SHOES",
@@ -82,7 +82,7 @@ export const products = [
   {
     _id: uuid(),
     img: "http://res.cloudinary.com/dwhran9qg/image/upload/Active Wear/Tracksuit_tfypbu.jpg",
-    name: "Yonex Track Suit (78037 - Jet Blue)",
+    name: "Yonex Track Suit (Jet Blue)",
     price: 4224,
     rating: 3.4,
     stock: "In Stock",
@@ -98,7 +98,7 @@ export const products = [
     price: 5299,
     rating: 4.2,
     stock: "In Stock",
-    delivery: "minimum 3 days",
+    delivery: "Standard Delivery",
     categoryName: "Cricket",
     productDetail:
       "One Cricket Bat Made with Best Quality Kashmir Willow,1 DSC Helmet with high impact resitant polypropylene outer shell,1 Pair Batting Pad Atmos With Traditional Cane Construction for maximum shock absorption,1 thigh Pad that made from high quality PVC material,1 Pair Batting Gloves Atmos with pre-cuved filled finger rolls for protection flexibility and comfort,1 Abdominal Guard that made with Traditionally shaped padded guard,1 Arm Guard made from high quality PVC material",
@@ -106,11 +106,11 @@ export const products = [
   {
     _id: uuid(),
     img: "https://res.cloudinary.com/dwhran9qg/image/upload/Fitness Equipments/Cardio_equipment_pw3rif.jpg",
-    name: "Powermax GB 110 SX Bike With Back Rest",
+    name: "Powermax Bike With Back Rest",
     price: 9890,
     rating: 1.9,
     stock: "Out of Stock",
-    delivery: "minimum 3 days",
+    delivery: "Standard Delivery",
     categoryName: "Fitness Equipment",
     productDetail:
       "Powermax GB 110 SX Bike with Back Rest is equipped with an Adjustable seat height for different users (730- 820mm). Which will provide you durable performance and you can perform long workout on this machine. It is a Magnetic Recumbent Bike & It has an 8 Level Tension Control System Recumbent Bike machine. This machine will provide you with Computer display for speed, time, distance & calories.",
@@ -118,7 +118,7 @@ export const products = [
   {
     _id: uuid(),
     img: "http://res.cloudinary.com/dwhran9qg/image/upload/Football/Football_jnjmua.jpg",
-    name: "Adidas FIFA World Cup 2018 OMB Football",
+    name: "Adidas FIFA World Cup Football",
     price: 2499,
     rating: 4.4,
     stock: "In Stock",

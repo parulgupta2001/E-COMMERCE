@@ -1,119 +1,144 @@
 import "./signup.css";
-import "../../../App.css";
 import { useAuth } from "../../contexts/index";
+import { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export function Signup() {
   const { authState, authDispatch } = useAuth();
-  const { user } = authState;
   const navigate = useNavigate();
+  const location = useLocation();
+  const [detail, setDetail] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+  const [dummy, setDummy] = useState(false);
 
-  const signupHandler = async (e) => {
+  async function signupHandler(e) {
     e.preventDefault();
     try {
-      const response = await axios.post(`/api/auth/signup`, {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        password: user.password,
-      });
-      // saving the encodedToken in the localStorage
-      console.log(response.data.encodedToken);
+      let response;
+      dummy
+        ? (response = await axios.post("/api/auth/login", detail))
+        : (response = await axios.post("/api/auth/signup", detail));
       localStorage.setItem("token", response.data.encodedToken);
       authDispatch({ type: "TOKEN", payload: response.data.encodedToken });
-      navigate("/product");
+
+      localStorage.setItem("user", response.data.createdUser);
+      authDispatch({ type: "USER", payload: response.data.createdUser });
+      toast.success("Signup Successful");
+      let from = location.state?.from?.pathname || "/";
+      navigate(from, { replace: true });
     } catch (error) {
-      console.log(error);
+      authDispatch({
+        type: "ERROR",
+        payload: error,
+      });
+      toast.error("Error occurred, please try again");
     }
-  };
+  }
 
   return (
-    <div className="signup">
-      <form onSubmit={signupHandler} className="signup-container">
-        <h3>SIGN-UP</h3>
+    <div className="authorization-page">
+      <form
+        onSubmit={signupHandler}
+        className=" signup-container authorization-container"
+      >
+        <h2>Create Account</h2>
         <div className="input-name-label">
           <div>
             <label className="first-name-label first-name">First name</label>
             <input
-              type="text"
               required
+              type="text"
+              value={detail.firstName}
               className="name-input first-name"
               onChange={(e) =>
-                authDispatch({
-                  type: "FIRST_NAME",
-                  payload: e.target.value,
-                })
+                setDetail({ ...detail, firstName: e.target.value })
               }
             />
           </div>
           <div>
             <label className="last-name-label last-name">Last name</label>
             <input
-              type="text"
               required
+              type="text"
+              value={detail.lastName}
               className="name-input last-name"
               onChange={(e) =>
-                authDispatch({ type: "LAST_NAME", payload: e.target.value })
+                setDetail({ ...detail, lastName: e.target.value })
               }
             />
           </div>
         </div>
         <div className="input email-label">
           <div>
-            <label className="input-email-label">Email</label>
+            <label htmlFor="name" className="input-email-label">
+              Email
+            </label>
           </div>
           <div>
             <input
+              required
               type="email"
-              required
+              value={detail.email}
               className="email-input user-input"
-              onChange={(e) =>
-                authDispatch({ type: "EMAIL", payload: e.target.value })
-              }
+              onChange={(e) => setDetail({ ...detail, email: e.target.value })}
             />
           </div>
         </div>
         <div className="input password-label">
           <div>
-            <label className="input-password-label">Password</label>
+            <label htmlFor="password" className="input-password-label">
+              Password
+            </label>
           </div>
           <div>
             <input
-              type="password"
               required
+              type="password"
+              value={detail.password}
               className="password-input user-input"
               onChange={(e) =>
-                authDispatch({ type: "PASSWORD", payload: e.target.value })
+                setDetail({ ...detail, password: e.target.value })
               }
             />
           </div>
         </div>
-        <div className="input password-label">
-          <div>
-            <label className="conform-password-label">Confirm Password</label>
-          </div>
-          <div>
-            <input
-              type="password"
-              required
-              className="password-input user-input"
-              onChange={(e) =>
-                authDispatch({
-                  type: "CONFIRM_PASSWORD",
-                  payload: e.target.value,
-                })
+
+        <div className="submit-buttons">
+          <button className="actual-btn authorization-page-btn" type="submit">
+            Create New Account
+          </button>
+          <button
+            className="testing-btn authorization-page-btn"
+            onClick={() => {
+              {
+                setDummy(true);
+
+                setDetail({
+                  ...detail,
+                  firstName: "Parul",
+                  lastName: "Gupta",
+                  email: "parulgupta@gmail.com",
+                  password: "parul123",
+                });
               }
-            />
-          </div>
+            }}
+          >
+            Dummy Signup
+          </button>
         </div>
-        <button className="sign-up-btn" type="submit">
-          SIGN-UP
-        </button>
         <div className="option">
-          <div>------------------------OR---------------------------</div>
-          <div className="already-user">
-            Already a user? <Link to="/login">LOGIN</Link>
+          <div>----------------------OR----------------------</div>
+          <div className="already-user-or-not">
+            Already an account?
+            <Link to="/login" className="other-option-link">
+              Login
+            </Link>
           </div>
         </div>
       </form>

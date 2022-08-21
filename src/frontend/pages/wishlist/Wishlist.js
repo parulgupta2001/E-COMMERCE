@@ -16,9 +16,15 @@ function Wishlist() {
   return (
     <>
       {wishlist.length === 0 ? (
-        <div className="empty-wishlist-msg">
-          <h3>Your ♡ WISHLIST is empty</h3>
-          <button onClick={() => navigate("/product")}>Add items</button>
+        <div className="empty-container">
+          <img
+            src="http://res.cloudinary.com/dwhran9qg/image/upload/Image/No_data-cuate_nqnpdu.svg"
+            className="wishlist-empty-container-img"
+          />
+          <div className="empty-container-msg">
+            <h2>Your Wishlist❤️ is empty</h2>
+            <h3 onClick={() => navigate("/product")}>Add Products</h3>
+          </div>
         </div>
       ) : (
         <div className="wishlist-container">
@@ -34,54 +40,38 @@ function Wishlist() {
                 _id,
                 categoryName,
               }) => (
-                <div className="wishlist-main-content">
-                  <div className="wishlist-main-content-middle">
+                <div className="main-content">
+                  <div className="main-content-middle">
                     <div>
                       <img
-                        className="wishlist-img-container"
+                        className="main-content-img"
                         src={img}
                         alt="product"
                       />
                     </div>
                     <div className="img-description">
-                      <div> {name} </div>
-                      <div> Rs {price} </div>
-                      <div>★{rating}</div>
-                      <div>{delivery}</div>
-                      <div>{stock}</div>
+                      <h3>{name}</h3>
+                      <div className="img-description-rating">★{rating}</div>
+                      <h4>{delivery}</h4>
+                      <div className="card-price">₹{price} </div>
                     </div>
                   </div>
-                  <div className="wishlist-main-content-bottom">
+                  <div className="main-content-bottom wishlist-card-bottom">
                     <button
                       onClick={() =>
                         removeFromWishlist(_id, setWishlist, encodedToken)
                       }
                     >
-                      REMOVE
+                      Remove
                     </button>
                     |
                     {cartItems.some((item) => item._id === _id) ? (
                       <button
                         onClick={() => {
-                          removeFromCart(_id, encodedToken, setCartItems);
-                          addToCart(
-                            {
-                              img,
-                              name,
-                              rating,
-                              _id,
-                              price,
-                              stock,
-                              delivery,
-                              categoryName,
-                            },
-                            setCartItems,
-                            encodedToken
-                          );
-                          removeFromWishlist(_id);
+                          removeFromWishlist(_id, setWishlist, encodedToken);
                         }}
                       >
-                        ADD TO CART
+                        Add to Cart
                       </button>
                     ) : (
                       <button
@@ -103,7 +93,7 @@ function Wishlist() {
                           removeFromWishlist(_id, setWishlist, encodedToken);
                         }}
                       >
-                        ADD TO CART
+                        Add To Cart
                       </button>
                     )}
                   </div>

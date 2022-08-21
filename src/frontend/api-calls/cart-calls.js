@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const addToCart = async (product, setCartItems, token) => {
   try {
@@ -12,8 +13,9 @@ const addToCart = async (product, setCartItems, token) => {
       }
     );
     setCartItems(response.data.cart);
+    toast.success("Added To Cart");
   } catch (error) {
-    console.log(error);
+    toast.error("Error! while adding to cart, please try again later.");
   }
 };
 
@@ -23,8 +25,9 @@ const removeFromCart = async (id, token, setCartItems) => {
       headers: { authorization: token },
     });
     setCartItems(response.data.cart);
-  } catch (error) {
-    console.log(error);
+    toast.success("Removed From Cart");
+  } catch (err) {
+    toast.error("Error! while removing from cart, please try again later.");
   }
 };
 
@@ -41,8 +44,9 @@ const decrement = async (id, qty, token, setCartItems) => {
         }
       );
       setCartItems(response.data.cart);
-    } catch (error) {
-      console.log(error);
+      toast.success("Item Decremented By 1");
+    } catch (err) {
+      toast.success("Error! Unable to decrement. Please try again later.");
     }
   }
 };
@@ -59,8 +63,9 @@ const increment = async (id, token, setCartItems) => {
       }
     );
     setCartItems(response.data.cart);
-  } catch (error) {
-    console.log(error);
+    toast.success("Item Incremented by 1");
+  } catch (err) {
+    toast.success("Error! Unable to increment. Please try again later.");
   }
 };
 

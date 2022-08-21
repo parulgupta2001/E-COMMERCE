@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const addToWishlist = async (product, setWishlist, token) => {
   try {
@@ -12,8 +13,9 @@ const addToWishlist = async (product, setWishlist, token) => {
       }
     );
     setWishlist(response.data.wishlist);
-  } catch (error) {
-    console.log(error);
+    toast.success("Added To Wishlist");
+  } catch (err) {
+    toast.error("Error. Unable to add to wishlist");
   }
 };
 
@@ -23,8 +25,9 @@ const removeFromWishlist = async (id, setWishlist, token) => {
       headers: { authorization: token },
     });
     setWishlist(response.data.wishlist);
-  } catch (error) {
-    console.log(error);
+    toast.success("Removed From Wishlist");
+  } catch (err) {
+    toast.error("Error. Unable to remove from wishlist");
   }
 };
 
