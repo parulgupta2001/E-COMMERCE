@@ -5,7 +5,7 @@
   top: 25vw;
   text-decoration: none;
   width: 100%;
-  height: 36vh;
+  height: 40.5vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@
 .landing-page-img {
   padding-top: 3rem;
   width: 100%;
-  height: 30vw;
+  height: 33vw;
   position: relative;
 }
 
@@ -43,7 +43,7 @@
 .list-container {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 2rem;
+  padding-top: 4rem;
   flex-wrap: wrap;
   margin-left: 1rem;
 }
@@ -89,5 +89,8 @@
 @media screen and (max-width: 600px) {
   .shop-now-banner {
     font-size: 5rem;
+  }
+  .list-container {
+    padding-top: 6rem;
   }
 }
