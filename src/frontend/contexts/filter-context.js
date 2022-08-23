@@ -31,10 +31,14 @@ const FilterProvider = ({ children }) => {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/products").then((response) => {
-      setProductList(response.data.products);
-      console.log(response.data.products);
-    });
+    (async () => {
+      try {
+        const response = await axios.get("/api/products");
+        setProductList(response.data.products);
+      } catch {
+        console.log("Error");
+      }
+    })();
   }, []);
 
   const sortedData = getSortedData(productList, state.sortBy);

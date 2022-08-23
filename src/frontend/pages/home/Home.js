@@ -36,6 +36,7 @@ export function Home() {
           {categories.map(({ categoryName, url }) => (
             <div
               className="stacked-list-item"
+              key={categoryName}
               onClick={() => {
                 dispatch({
                   type: "CATEGORY",

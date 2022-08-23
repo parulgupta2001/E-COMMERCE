@@ -9,7 +9,7 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "Active Wear",
-    url: "http://res.cloudinary.com/dwhran9qg/image/upload/Image/download_gofghi.jpg",
+    url: "http://res.cloudinary.com/dwhran9qg/image/upload/Active Wear/BmbleLeggingsMotionBurgundy_z9oslf.webp",
   },
   {
     _id: uuid(),
@@ -20,11 +20,6 @@ export const categories = [
     _id: uuid(),
     categoryName: "Football",
     url: "http://res.cloudinary.com/dwhran9qg/image/upload/Image/png-clipart-fifa-15-fifa-18-fifa-street-4-fc-barcelona-2014-fifa-world-cup-messi-tshirt-sport-thumbnail_xfcmnp.png",
-  },
-  {
-    _id: uuid(),
-    categoryName: "Fitness Accessories",
-    url: "http://res.cloudinary.com/dwhran9qg/image/upload/Image/istockphoto-1176741157-612x612_fs3wiz.jpg",
   },
   {
     _id: uuid(),

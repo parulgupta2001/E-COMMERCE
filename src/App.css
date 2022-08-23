@@ -9,7 +9,7 @@
   --standard-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
+.App {
+  max-width: 100%;
+  min-height: 100vh;
 }

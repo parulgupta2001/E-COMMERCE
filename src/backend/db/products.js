@@ -13,23 +13,35 @@ export const products = [
     price: 2999,
     rating: 3.7,
     stock: "In Stock",
-    delivery: "Fast Delivery",
+    delivery: "Standard Delivery",
     categoryName: "Cricket",
     productDetail:
-      " NX White Cricket Ball is Specially Made with Entirely Hand Stitched. NX White Cricket balls is Specially designed for match Practice, T20 Matches, Practice Sessions, T20 Tournaments.NX Cricket Bats Leather ball White is Specially designed for match Practice, T20 Matches, Practice Sessions, T20 Tournaments.NX White Cricket Ball Leather is made in such a way that it meets Player Professional Standards.NX White Cricket balls leather has a Good Bounce to it which makes it ideal for the Bowlers as well the Batsmen.NX White Cricket Ball Hand-stitching is done using 5 ply thread which removes any possibility of error in the stitching and offers the White ball a nice grip along with a professional look.",
+      " NX White Cricket Ball is Specially Made with Entirely Hand Stitched. It is Specially designed for match Practice, T20 Matches, Practice Sessions, T20 Tournaments.",
   },
 
   {
     _id: uuid(),
-    img: "http://res.cloudinary.com/dwhran9qg/image/upload/Fitness Accessories/Yoga_mat_hn8ctw.jpg",
-    name: "Stag Yoga Mantra Asana Mat",
-    price: 1050,
-    rating: 3.1,
-    stock: "Out Of Stock",
-    delivery: "Standard Delivery",
-    categoryName: "Fitness Accessories",
+    img: "http://res.cloudinary.com/dwhran9qg/image/upload/Active Wear/activewear-promo-9c8cc063fabb42d78c7c7be32d15f2b3_wq5m8d.webp",
+    name: "Ankle Length Leggings",
+    price: 549,
+    rating: 4.4,
+    stock: "In Stock",
+    delivery: "Fast Delivery",
+    categoryName: "Active Wear",
     productDetail:
-      " - Dimension: 6ft × 2ft, Thickness: 6mm, Color: Black/Gold. Produces exceptional resilience and incomparable cushioning. Offers terrific slip-resistance even with perspiration on the mat. Ideal for yoga, Pilates, stretching and toning workouts. EVA Material provides proper support. Potrayel of different Asanas. Washable & easy to store",
+      "Product Dimensions 11 x 25 x 4 cm; 350 Grams, Manufacturer :Network Clothing Company, Country of Origin: India, Department: Women.",
+  },
+  {
+    _id: uuid(),
+    img: "http://res.cloudinary.com/dwhran9qg/image/upload/Cricket/61DIp2fEEKL._SX679__zrgdwu.jpg",
+    name: "DSC Guard Cricket Helmet",
+    price: 859,
+    rating: 3.6,
+    stock: "In Stock",
+    delivery: "Fast Delivery",
+    categoryName: "Cricket",
+    productDetail:
+      "Material:Outer Shell: Cloth Covered High Impact Resistant Polypropylene | Inner Mesh: Shock Resistant, Sweat Absorbent| High density EVA foam padding for superior cushioning.",
   },
   {
     _id: uuid(),
@@ -38,7 +50,7 @@ export const products = [
     price: 1999,
     rating: 4.1,
     stock: "Out of Stock",
-    delivery: "Fast Delivery",
+    delivery: "Standard Delivery",
     categoryName: "Active Wear",
     productDetail:
       "100 % Polyseter,Gsm : 160,Process : wicking properties,Polo construction with buttons,More comfortable,Sleeve with rib opening",
@@ -51,9 +63,21 @@ export const products = [
     rating: 3.5,
     stock: "In Stock",
     delivery: "Standard Delivery",
-    categoryName: "Fitness Accessories",
+    categoryName: "Fitness Equipment",
     productDetail:
-      "igera twist and kink resistant wire increases reliability, speed and endurance. Skipping is one of the best cardio vascular exercises that produces results, is cheap and can be done anywhere, anytime. Good for shedding weight fast, toning up and maintaining muscle tone. Skipping ropes are an excellent tool for any fitness level or goal. They are for kids playing games, adults exercise, cross fit, weight losing etc.",
+      "Igera twist and kink resistant wire increases reliability, speed and endurance. Good for shedding weight fast, toning up and maintaining muscle tone.",
+  },
+  {
+    _id: uuid(),
+    img: "http://res.cloudinary.com/dwhran9qg/image/upload/Football/football_njg1tz.webp",
+    name: "NIVIA Street Football - Size: 5 ",
+    price: 699,
+    rating: 4.2,
+    stock: "Out of Stock",
+    delivery: "Standard Delivery",
+    categoryName: "Football",
+    productDetail:
+      "Nivia Street Football is highly durable and made up of rubber material. Suitable for Hard Ground without Grass,Wet & Grassy Ground & Artificial Turf. Proudly Made in India.",
   },
   {
     _id: uuid(),
@@ -65,7 +89,19 @@ export const products = [
     delivery: "Fast Delivery",
     categoryName: "Fitness Equipment",
     productDetail:
-      "Lifetime Frame Warranty, 3-Year Motor Warranty, And 1-Year Parts And Labour Warranty,3.0HP DC Motor,18-Level Auto Incline for intense workout,13.3 Touch Screen Display - Speed, Time, Distance, Calories burned, Heart rate and Fat + BMI measurement,Max User Weight: 150KG, Speed: 0.8 - 18.0km/hr,Running Surface (L x W) – 1400 x 550mm /55 X 21.5 inches.",
+      "3-Year Motor Warranty, 1-Year Parts And Labour Warranty,3.0HP DC Motor,13.3 Touch Screen Display - Speed, Time, Distance, Calories burned, Heart rate,Max User Weight: 150KG.",
+  },
+  {
+    _id: uuid(),
+    img: "http://res.cloudinary.com/dwhran9qg/image/upload/Fitness Accessories/weights_pxl56y.webp",
+    name: "cube cuffs | wrist and ankle weights",
+    price: 1899,
+    rating: 4.9,
+    stock: "In Stock",
+    delivery: "Standard Delivery",
+    categoryName: "Fitness Equipment",
+    productDetail:
+      "Weighted wraps for your ankles & wrists for that comfortable resistance. At 1 lbs each, these beautiful bracelets can weigh in on every workout.",
   },
   {
     _id: uuid(),
@@ -77,7 +113,7 @@ export const products = [
     delivery: "Standard Delivery",
     categoryName: "Football",
     productDetail:
-      "Product Dimension: 33 x 23 x 11 cm; 550 Grams, Date First Available 28 December 2020,Manufacturer :Nike,ASIN :  B07HYXKF19,tem model number  :  844436,Department  :  Mens,Manufacturer  :  Nike,Item Weight  :  550 g,Item Dimensions LxWxH  :  33 x 23 x 11 Centimeters,Net Quantity  :  1 count,Generic Name  :  SHOES",
+      "Product Dimension: 33 x 23 x 11 cm; 550 Grams, Department: Mens, Manufacturer: Nike, Item Dimensions LxWxH: 33 x 23 x 11 Centimeters, Net Quantity: 1 count",
   },
   {
     _id: uuid(),
@@ -89,7 +125,19 @@ export const products = [
     delivery: "Fast Delivery",
     categoryName: "Active Wear",
     productDetail:
-      "Pattern: Solid Fabric: Polyester Fabric,Yonex Tracksuit is a court designed top that allows the full range of movement needed on court. Off court the top keeps you warm between games. Ventilation panels prevent overheating during play and gently help to lower temp while off court.",
+      "Pattern: Solid Fabric: Polyester Fabric,Yonex Tracksuit is a court designed top that allows the full range of movement needed on court.",
+  },
+  {
+    _id: uuid(),
+    img: "http://res.cloudinary.com/dwhran9qg/image/upload/Football/81_RVmc3lKL._SX679__vbthvs.jpg",
+    name: "Nivia Air Strike Football Keeper Gloves",
+    price: 345,
+    rating: 3.2,
+    stock: "Out of Stock",
+    delivery: "Standard Delivery",
+    categoryName: "Football",
+    productDetail:
+      "Extra grip and durability in all weather conditions from the latex palm, Positive Cut provides a good and comfortable fit with a great contact area to the ball.",
   },
   {
     _id: uuid(),
@@ -101,7 +149,7 @@ export const products = [
     delivery: "Standard Delivery",
     categoryName: "Cricket",
     productDetail:
-      "One Cricket Bat Made with Best Quality Kashmir Willow,1 DSC Helmet with high impact resitant polypropylene outer shell,1 Pair Batting Pad Atmos With Traditional Cane Construction for maximum shock absorption,1 thigh Pad that made from high quality PVC material,1 Pair Batting Gloves Atmos with pre-cuved filled finger rolls for protection flexibility and comfort,1 Abdominal Guard that made with Traditionally shaped padded guard,1 Arm Guard made from high quality PVC material",
+      "1 Cricket Bat,1 DSC Helmet,1 Pair Batting Pad,1 thigh Pad,1 Pair Batting Gloves,1 Abdominal Guard,1 Arm Guard.",
   },
   {
     _id: uuid(),
@@ -113,7 +161,31 @@ export const products = [
     delivery: "Standard Delivery",
     categoryName: "Fitness Equipment",
     productDetail:
-      "Powermax GB 110 SX Bike with Back Rest is equipped with an Adjustable seat height for different users (730- 820mm). Which will provide you durable performance and you can perform long workout on this machine. It is a Magnetic Recumbent Bike & It has an 8 Level Tension Control System Recumbent Bike machine. This machine will provide you with Computer display for speed, time, distance & calories.",
+      "Powermax GB 110 SX Bike with Back Rest is equipped with an Adjustable seat height.This machine will provide you with Computer display for speed, time, distance & calories.",
+  },
+  {
+    _id: uuid(),
+    img: "http://res.cloudinary.com/dwhran9qg/image/upload/Active Wear/Wholesale-Gym-Wear-Women-Quickly-Dry-Fitness-Sports-Yoga-Wear-Custom-Women-Shorts-and-Bra-Set_f7mkww.jpg",
+    name: "2 piece set of gym wear",
+    price: 1859,
+    rating: 4.3,
+    stock: "Out of Stock",
+    delivery: "Fast Delivery",
+    categoryName: "Active Wear",
+    productDetail:
+      "Breathable, Quick-Drying, Body-Shape, Waterproof,Windbreak, Anti-Static, Seamless, Anti-Wrinkle,etc",
+  },
+  {
+    _id: uuid(),
+    img: "http://res.cloudinary.com/dwhran9qg/image/upload/Cricket/p1623911_hnxonc.avif",
+    name: "Safety Certified Cricket batting Pads",
+    price: 1999,
+    rating: 2.4,
+    stock: "In Stock",
+    delivery: "Standard Delivery",
+    categoryName: "Cricket",
+    productDetail:
+      "Impact protection, EVA Foam padding enables a lightweight batting pad- 750 gms in Large size,User comfort.",
   },
   {
     _id: uuid(),
@@ -125,6 +197,6 @@ export const products = [
     delivery: "Fast Delivery",
     categoryName: "Football",
     productDetail:
-      "Model Name: WORLD CUP OMB,Certification:Officially licensed by FIFA,Stitching Type:Machine Stitched,Bladder Type:Latex bladder,Other Features:Made of 83% TPU / 17% polyester surface., Latex bladder., Circumference : 68.5cm, Ball passed FIFA tests on circumference weight, rebound and water absorption., Thermally bonded seamless surface for a more predictable trajectory, better touch and lower water uptake., Top game ball., Requires inflation.",
+      "Model Name: WORLD CUP OMB,Certification:Officially licensed by FIFA,Stitching Type:Machine Stitched,Bladder Type:Latex bladder.",
   },
 ];

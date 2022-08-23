@@ -14,9 +14,9 @@
   display: flex;
   flex-direction: column;
   background-color: var(--background-color-one);
-  width: 100%;
   border-bottom: dotted 1.5px var(--border-color);
-  position: fixed;
+  position: sticky;
+  top: 0;
   flex-wrap: wrap;
   z-index: 4;
 }
@@ -116,5 +116,14 @@
   font-size: 13px;
   line-height: 1.8rem;
   padding-left: 0.8rem;
+  cursor: pointer;
+  display: flex;
   box-shadow: var(--standard-box-shadow);
+}
+
+@media screen and (max-width: 900px) {
+  .search-bar input,
+  .product-search-icon {
+    display: none;
+  }
 }

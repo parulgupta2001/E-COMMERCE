@@ -40,6 +40,7 @@ export function Address() {
             <div className="address-content-container">
               <div
                 className="delivery-address-content"
+                key={add._id}
                 onClick={() => {
                   if (pathname === "/deliveryAddress") {
                     setDeliveryAddress(add);

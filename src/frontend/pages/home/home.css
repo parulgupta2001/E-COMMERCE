@@ -2,13 +2,14 @@
   background-color: var(--background-color-three);
   color: var(--background-color-one);
   position: absolute;
-  top: 24rem;
+  top: 25vw;
   text-decoration: none;
   width: 100%;
-  height: 18rem;
+  height: 36vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   font-size: 7rem;
   font-family: sans-serif;
 }
@@ -18,9 +19,9 @@
 }
 
 .landing-page-img {
-  padding-top: 10rem;
+  padding-top: 3rem;
   width: 100%;
-  height: 32rem;
+  height: 30vw;
   position: relative;
 }
 
@@ -41,7 +42,7 @@
 
 .list-container {
   display: flex;
-  column-gap: 0.7rem;
+  justify-content: space-evenly;
   padding-top: 2rem;
   flex-wrap: wrap;
   margin-left: 1rem;
@@ -53,7 +54,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 2px;
   z-index: 2;
 }
 
@@ -78,4 +78,16 @@
 
 .category-name:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 900px) {
+  .shop-category-banner {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .shop-now-banner {
+    font-size: 5rem;
+  }
 }

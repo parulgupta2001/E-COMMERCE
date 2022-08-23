@@ -7,3 +7,4 @@ export { Wishlist } from "./wishlist/Wishlist";
 export { ProductDetail } from "./product-detail/Product-detail";
 export { Profile } from "./profile/Profile";
 export { DeliveryAddress } from "./delivery-address/Delivery-address";
+export { PageNotFound } from "./page-not-found/Page-not-found";

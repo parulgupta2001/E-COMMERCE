@@ -1,7 +1,7 @@
 .authorization-page {
   display: flex;
   justify-content: center;
-  padding-top: 12rem;
+  padding-top: 3rem;
 }
 
 .authorization-container {
@@ -11,7 +11,7 @@
   flex-direction: column;
   row-gap: 1rem;
   border-radius: 5px;
-  background-color: rgb(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .login-container {
@@ -48,12 +48,11 @@
 }
 
 .testing-btn {
-  background-color: rgb(0, 0, 0, 0.25);
-  color: black;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .testing-btn:hover {
-  background-color: rgb(0, 0, 0, 0.2);
+  background-color: var(--background-color-three);
 }
 
 .actual-btn:hover {

@@ -1,5 +1,5 @@
 .cart-container {
-  padding-top: 13rem;
+  padding: 3rem 0 2rem 0;
   display: flex;
   column-gap: 8rem;
   flex-wrap: wrap;
@@ -7,7 +7,8 @@
 }
 
 .main-content {
-  width: 32rem;
+  width: 30rem;
+  padding: 0 2rem;
   height: 13rem;
   display: flex;
   flex-direction: column;
@@ -139,7 +140,7 @@ h5 {
 }
 
 .empty-container {
-  padding-top: 9rem;
+  padding-top: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,4 +172,10 @@ h5 {
 .card-price {
   font-size: larger;
   font-weight: 900;
+}
+
+@media screen and (max-width: 600px) {
+  .main-content {
+    width: 22rem;
+  }
 }
