@@ -54,7 +54,11 @@ export function ProductDetail() {
             ) : (
               <button
                 className="product-detail-cart-btn"
-                onClick={() => addToCart(detail, setCartItems, token)}
+                onClick={() =>
+                  token
+                    ? addToCart(detail, setCartItems, token)
+                    : navigate("/login")
+                }
               >
                 Add to cart
               </button>
