@@ -43,7 +43,7 @@ function Navbar() {
   }
 
   return (
-    <nav class="navigation-bar">
+    <nav className="navigation-bar">
       <div className="upper-nav">
         <FaUserAlt
           title="Profile"
@@ -77,6 +77,7 @@ function Navbar() {
         <div className="search-bar">
           <div>
             <input
+              type="search"
               placeholder="Search..."
               onChange={(e) =>
                 setSearchProduct(search(e.target.value, categoryData))
@@ -85,8 +86,17 @@ function Navbar() {
             <AiOutlineSearch className=" product-search-icon" />
           </div>
           {searchProduct &&
-            searchProduct.map(({ name }) => (
-              <span className="search-products">{name}</span>
+            searchProduct.map(({ name, _id }) => (
+              <span
+                key={_id}
+                className="search-products"
+                onClick={() => {
+                  navigate(`/product/${_id}`);
+                  setSearchProduct(search(""));
+                }}
+              >
+                {name}
+              </span>
             ))}
         </div>
 
@@ -97,7 +107,9 @@ function Navbar() {
                 className="wishlist"
                 style={{ color: "var(--background-color-two)" }}
               />
-              <div class="dot-wishlist dot">{token ? wishlist.length : 0}</div>
+              <div className="dot-wishlist dot">
+                {token ? wishlist.length : 0}
+              </div>
             </Link>
           </div>
           <div>
@@ -106,7 +118,7 @@ function Navbar() {
                 className="shopping-cart"
                 style={{ color: "var(--background-color-two)" }}
               />
-              <div class="dot-cart dot">{token ? cartItems.length : 0}</div>
+              <div className="dot-cart dot">{token ? cartItems.length : 0}</div>
             </Link>
           </div>
         </div>

@@ -40,7 +40,7 @@ function Wishlist() {
                 _id,
                 categoryName,
               }) => (
-                <div className="main-content">
+                <div className="main-content" key={_id}>
                   <div className="main-content-middle">
                     <div>
                       <img

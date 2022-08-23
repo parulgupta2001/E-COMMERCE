@@ -1,5 +1,5 @@
 .profile-container {
-  padding-top: 10rem;
+  padding-top: 3rem;
 }
 
 .profile-content {
@@ -8,12 +8,12 @@
 }
 
 .info {
-  background-color: blue;
+  background-color: var(--color-two);
   padding: 2rem 3rem;
   box-shadow: var(--standard-box-shadow);
   border: none;
   border-radius: 0.4rem;
-  color: white;
+  color: var(--background-color-one);
   font-size: larger;
   display: flex;
   align-items: center;
@@ -21,12 +21,12 @@
 }
 
 .address {
-  background-color: white;
+  background-color: var(--background-color-one);
   padding: 2rem 3rem;
   box-shadow: var(--standard-box-shadow);
   border: none;
   border-radius: 0.4rem;
-  color: black;
+  color: var(--background-color-two);
   font-size: larger;
   display: flex;
   align-items: center;

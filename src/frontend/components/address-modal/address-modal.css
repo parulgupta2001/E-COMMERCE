@@ -6,19 +6,21 @@
   left: 0;
   z-index: 5;
   display: flex;
-  padding-top: 3rem;
+  padding: 3rem 0 2rem 0;
   justify-content: center;
-  align-items: center;
+  height: 100em;
   background-color: var(--background-color-three);
 }
 
 .address-modal {
-  background-color: white;
+  background-color: var(--background-color-one);
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
   align-items: center;
   width: fit-content;
+  height: 33%;
+  margin: 3rem 0 0 0;
   padding: 2rem;
   border-radius: 5px;
   font-weight: var(--standard-font-weight);

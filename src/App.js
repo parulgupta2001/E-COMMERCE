@@ -9,6 +9,7 @@ import {
   ProductDetail,
   Profile,
   DeliveryAddress,
+  PageNotFound,
 } from "./frontend/pages/index";
 import { RequiresAuth } from "./frontend/RequiresAuth";
 import {
@@ -65,6 +66,8 @@ function App() {
             </RequiresAuth>
           }
         />
+
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );

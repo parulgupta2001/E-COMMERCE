@@ -7,7 +7,6 @@ export function userReducer(state, action) {
     case "EDIT_ADDRESS":
     case "DELETE_ADDRESS":
     case "ADD_ADDRESS":
-      console.log(action.payload);
       return { ...state, address: action.payload };
     default:
       return state;

@@ -1,0 +1,19 @@
+.page-not-found-container {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-not-found-container img {
+  height: 35%;
+  width: 35%;
+}
+
+.page-not-found-container h3 {
+  text-decoration: underline;
+}
+
+.page-not-found-container h3:hover {
+  color: var(--color-two);
+}

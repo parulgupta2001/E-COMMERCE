@@ -20,7 +20,7 @@ export function Products() {
     <div className="main">
       {categoryData.map(
         ({ img, _id, name, price, rating, stock, delivery, categoryName }) => (
-          <div className="img-card-container">
+          <div className="img-card-container" key={_id}>
             {wishlist.find((item) => item._id === _id) ? (
               <AiTwotoneHeart
                 className="red-color heart"

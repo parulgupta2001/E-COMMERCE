@@ -6,8 +6,6 @@ export function UserInfo() {
   const { authState } = useAuth();
   const { user } = authState;
 
-  console.log(user);
-
   return (
     <div className="user-info-container">
       <div className="user-info-content">

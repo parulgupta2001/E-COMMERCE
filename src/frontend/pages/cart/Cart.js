@@ -84,7 +84,7 @@ function Cart() {
           <div>
             {cartItems.map(
               ({ img, name, price, rating, delivery, qty, _id }) => (
-                <div className="main-content">
+                <div className="main-content" key={_id}>
                   <div className="main-content-middle">
                     <div>
                       <img

@@ -97,11 +97,6 @@ const getCategoryData = (products, categoryAll) => {
   if (categoryAll === "Football") {
     return products.filter((item) => item.categoryName === "Football");
   }
-  if (categoryAll === "Fitness Accessories") {
-    return products.filter(
-      (item) => item.categoryName === "Fitness Accessories"
-    );
-  }
   if (categoryAll === "Fitness Equipments") {
     return products.filter((item) => item.categoryName === "Fitness Equipment");
   }
